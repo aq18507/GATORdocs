@@ -46,7 +46,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'WordCount'
+project = 'GATORcell Documentation'
 copyright = '2022, RMH Aerospace'
 author = 'Rafael Heeb'
 
