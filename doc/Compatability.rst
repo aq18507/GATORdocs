@@ -24,6 +24,20 @@ The latest GATORcell version relies on the following scripts and versions:
 
 GATORcell relies on a  number of scripts that are compatible with each other. The version of each scripts is strcutured as ``v.[MainVersion].[Subversion]``. The compatability is only ever referrs to the main version. since there might be models that are created on older versions it was decided to create new scripts / function names with specifying the version in their name with the following convention: ``[ScriptName][Version].mlx`` noting that version ``1`` is shown as ``[ScriptName].mlx``. The same applies to the GMSH shape files with the ``.geo`` suffix.
 
+GATORcell is a wrapper program written in Matlab. Whils it is likely that it works on any older, as well as future versions it has to be noted that it is only tested ond proven to work on the version listed below. The same applies for both GMSH and ABAQUS. This was initially written in the GMSH version ``4.9.3``. This means that it will be backwards compatible to this version. GMSH has since completely rewritten the seeding algorithem which produces a much better mesh from version ``4.10.5`` onwards with a significantly faster meshing algorithm. It is therefore advised to use the version in the table below.
+
++-----------------------------------+
+| Software Versions                 |
++---------------------+-------------+
+| Software Package    | Version     |
++=====================+=============+
+| Matlab              | ``2022``    |
++---------------------+-------------+
+| GMSH                | ``4.10.5``  |
++---------------------+-------------+
+| ABAQUS              | ``2018``    |
++---------------------+-------------+
+
 .. warning::
     The current versions of GATORcell have only ever been tested with the script version combination shown above. While great care was taken that they are backwards compatible it has not been tested.
 
