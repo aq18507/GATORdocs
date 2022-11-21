@@ -434,7 +434,7 @@ Initial
 **Initial:**
 The initial Step signifies the initial condition or the initial step. So far only the `Boundary Conditions` have been programmed. There is the possibility to program some other condition if needed. 
 
-**BC:** Defined the associated Boundary Condition. It has to be specified as a positive initeger and in the following format :math:`1 \times n`
+**BC:** Defined the associated Boundary Condition. It has to be specified as a positive initeger and in the format :math:`1 \times n`.
 
 .. code-block:: matlab
 
