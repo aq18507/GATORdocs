@@ -31,11 +31,11 @@ GATORcell is a wrapper program written in Matlab. Whils it is likely that it wor
 +---------------------+-------------+
 | Software Package    | Version     |
 +=====================+=============+
-| Matlab              | ``2022``    |
+| Matlab              | ``R2022a``  |
 +---------------------+-------------+
 | GMSH                | ``4.10.5``  |
 +---------------------+-------------+
-| ABAQUS              | ``2018``    |
+| ABAQUS              | ``R2018x``  |
 +---------------------+-------------+
 
 .. warning::
