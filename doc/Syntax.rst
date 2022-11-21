@@ -406,11 +406,11 @@ The following subset loads types are preprogrammed with the syntax:
 	Input.Load_[n].Vector = [LoadVector];
 
 
-**Step:** This defines the step to which this load is associated to. The value is to be numeric in the form of :math:`1 \times 1`.
+**Surface:** This defines to which surface this load or in this case pressure is associated to. The value is to be numeric in the form of :math:`1 \times 1`.
 
 .. code-block:: matlab
 
-	Input.Load_[n].Step = [StepNumber];
+	Input.Load_[n].Surface = [SurfaceNumber];
 
 .. code-block:: matlab
   :caption: Example for a Pressure Load
@@ -420,9 +420,12 @@ The following subset loads types are preprogrammed with the syntax:
   Input.Load_1.Type = ["Pressure" "SurfaceLoad"];
   % Load Vector
   Input.Load_1.Vector = -0.5;
-  % Step to which this load is associated to
-  Input.Load_1.Step = 2;
   % Surface
   Input.Load_1.Surface = 5;
+
+.. -------------------------------------------------------------------------------------------------------------------------------
+Steps
+-----
+
 
 .. -------------------------------------------------------------------------------------------------------------------------------
