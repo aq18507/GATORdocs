@@ -435,8 +435,11 @@ Initial
 The initial Step signifies the initial condition or the initial step. So far only the `Boundary Conditions` have been programmed. There is the possibility to program some other condition if needed. 
 
 **BC:**
+
 .. code-block:: matlab
+
   Input.Initial.BC = [BoundaryCondition];
+
 
 .. note::
   This definition is only needed once and will filther though all steps as it would when defining the initial conditions in ABAQUS. See ABAQUS manual for futrther information.
