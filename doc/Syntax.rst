@@ -476,7 +476,6 @@ Global Syntax
 .. code-block:: matlab
   :caption: Example Step
 
-  
 
   % Name
   Input.Step_1.Name = 'Pressure';
