@@ -470,6 +470,9 @@ Global Syntax
 
   Input.Step_[n].Type = "[Type]";
 
+
+**Load:**
+
 .. code-block:: matlab
   :caption: Example Step
 
