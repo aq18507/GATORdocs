@@ -471,12 +471,17 @@ Global Syntax
   Input.Step_[n].Type = "[Type]";
 
 
-**Load:**
+**Load:** This donates the Loads associated with this step. The values need to be positive integers and in the following format :math:`1 \times n`.
+
+.. code-block:: matlab
+
+  Input.Step_[n].Load = [LoadNo];
+
+
+**Period:**
 
 .. code-block:: matlab
   :caption: Example Step
-
-
   % Name
   Input.Step_1.Name = 'Pressure';
   % Type
