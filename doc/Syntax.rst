@@ -419,6 +419,7 @@ The following subset loads types are preprogrammed with the syntax:
 .. code-block:: matlab
   :caption: Example for a Pressure Load
 
+  % Name
   Input.Load_1.Name = 'Pressure-Load';
   % Type
   Input.Load_1.Type = ["Pressure" "SurfaceLoad"];
@@ -451,6 +452,9 @@ Steps
 
 So far only the above mentioned Steps have been programmed. 
 
+Global Syntax
++++++++++++++
+
 **Name:** This is the name that will be shown in the ABAQUS .inp file
 
 .. code-block:: matlab
@@ -458,37 +462,40 @@ So far only the above mentioned Steps have been programmed.
 	Input.Step_[n].Name = "[Name]";
 
 
+**Type:** This denotes the step type. The abaliable Types are listed below.
+
+- Static
+
+
 .. code-block:: matlab
   :caption: Example Step
 
   % Name
-  Input.Step_2.Name = 'Pressure';
+  Input.Step_1.Name = 'Pressure';
   % Type
-  Input.Step_2.Type = 'Static';
+  Input.Step_1.Type = 'Static';
   % Load
-  Input.Step_2.Load = 1;
+  Input.Step_1.Load = 1;
   % Time Period
-  Input.Step_2.Period = 1;
+  Input.Step_1.Period = 1;
   % Increment Size [Initial,Miniumum,Maximum]
-  Input.Step_2.Increment = [Input.Par.EA_Increment 1e-12 Input.Par.EA_Increment];
+  Input.Step_1.Increment = [1e-1 1e-12 1];
   % NLGEOM
-  Input.Step_2.NLGEOM = 'YES';
-  % Associated Load [L1 L2 L3 ...]
-  % Input.Step_1.Load = 1;
+  Input.Step_1.NLGEOM = 'YES';
   % Associated Boundry Condition
-  % Input.Step_1.BC = [2 3 4 5 6 7 8];%[2 3 4];
+  Input.Step_1.BC = [2 3 4 5 6 7 8];
   % Prompts history output (number denotes the number of histories)
-  Input.Step_2.H = 1;
+  Input.Step_1.H = 1;
   % History Name
-  Input.Step_2.History_1.Node.Name = "RF";
+  Input.Step_1.History_1.Node.Name = "RF";
   % Output History. Define the number
-  Input.Step_2.History_1.Node.Set = set_no;
+  Input.Step_1.History_1.Node.Set = set_no;
   % Node output values
-  Input.Step_2.History_1.Node.Output = "U3";
+  Input.Step_1.History_1.Node.Output = "U3";
   % Values to be printed
-  Input.Step_2.History_1.Node.Print.Output = Input.Step_2.History_1.Node.Output;
+  Input.Step_1.History_1.Node.Print.Output = Input.Step_1.History_1.Node.Output;
   % Print Set
-  Input.Step_2.History_1.Node.Print.Set = Input.Step_2.History_1.Node.Set;
+  Input.Step_1.History_1.Node.Print.Set = Input.Step_1.History_1.Node.Set;
   % Print frequency
   Input.Step_2.History_1.Node.Print.frequency = 1;
 
