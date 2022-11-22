@@ -466,6 +466,9 @@ Global Syntax
 
 - Static
 
+.. code-block:: matlab
+
+  Input.Step_[n].Type = "[Type]";
 
 .. code-block:: matlab
   :caption: Example Step
