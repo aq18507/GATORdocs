@@ -20,3 +20,8 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: _build/
           force_orphan: true
+      - name: CNAME
+        - uses: "finnp/create-file-action@master"
+          env:
+            FILE_NAME: "CNAME"
+            FILE_DATA: "gatorcell.rmhaerospace.com"
