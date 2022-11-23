@@ -482,6 +482,7 @@ Global Syntax
 
 .. code-block:: matlab
   :caption: Example Step
+  
   % Name
   Input.Step_1.Name = 'Pressure';
   % Type
@@ -510,5 +511,6 @@ Global Syntax
   Input.Step_1.History_1.Node.Print.Set = Input.Step_1.History_1.Node.Set;
   % Print frequency
   Input.Step_2.History_1.Node.Print.frequency = 1;
+
 
 .. -------------------------------------------------------------------------------------------------------------------------------
