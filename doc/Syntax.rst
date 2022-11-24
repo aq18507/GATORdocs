@@ -471,6 +471,16 @@ Global Syntax
   Input.Step_[n].Type = "[Type]";
 
 
+**Period:** This defines the step time as outlined here. As a standard it is set to :math:`1` but it can be set to anything else as long as it complies with the ABAQUS syntax. This prints the time directly form the struct to the ABAQUS input file. for more information see `ABAQUS General analysis procedure <https://classes.engineering.wustl.edu/2009/spring/mase5513/abaqus/docs/v6.6/books/gsa/default.htm?startat=ch11s01.html>`_.
+
+.. code-block:: matlab
+
+  Input.Step_[n].Period = 1;
+
+
+Optional Syntax
++++++++++++++++
+
 **Load:** This donates the Loads associated with this step. The values need to be positive integers and in the following format :math:`1 \times n`.
 
 .. code-block:: matlab
@@ -478,7 +488,7 @@ Global Syntax
   Input.Step_[n].Load = [LoadNo];
 
 
-**Period:**
+
 
 .. code-block:: matlab
   :caption: Example Step
