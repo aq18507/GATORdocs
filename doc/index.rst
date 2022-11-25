@@ -15,7 +15,7 @@ Welcome to the GATORcell documentation. This website is here to aid you though t
    Syntax
    ShapeFile
    Scripts
-   Depreciated Scripts
+   Depreciated_Scripts
 
 
 .. Indices and tables
