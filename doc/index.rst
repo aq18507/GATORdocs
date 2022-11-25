@@ -14,6 +14,7 @@ Welcome to the GATORcell documentation. This website is here to aid you though t
    Compatability
    Syntax
    ShapeFile
+   Scripts
 
 
 Indices and tables
