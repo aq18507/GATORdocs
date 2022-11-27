@@ -13,7 +13,7 @@ The ``runAbaqus4`` script is designed to run abaqus from ``Matlab`` over command
 
 **Working Priniciple**
 
-#. It scans the directory for ``.inp`` and ``.mat``files. Once it has generated a list it will submit all files to ABAQUS.
+#. It scans the directory for ``.inp`` and ``.mat`` files. Once it has generated a list it will submit all files to ABAQUS.
 #. There is a gatekeeper function to prevent CPU and Memory overlaod. The parameter ``NumberOfModels = 6`` which means that it can run 6 models in parallel. It will do this on one single core, which provides the computer with two cores overhead.
 #. Once all models are solved ``runAbaqus4`` will call the ``dataSort`` function to append the reults from the ``.dat`` files into the corresponding ``.mat`` file.
 
@@ -23,7 +23,7 @@ The ``runAbaqus4`` script is designed to run abaqus from ``Matlab`` over command
 
 Optional Parameters
 +++++++++++++++++++
-#. NumberOfModels which limits the number of simulations to be run in parallel. Default == :math:`6`
+#. ``NumberOfModels`` which limits the number of simulations to be run in parallel. Default == :math:`6`
 
 Syntax
 ++++++
