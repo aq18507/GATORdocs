@@ -62,15 +62,27 @@ This function reads data from all ``.mat`` files in a directory and sorts in a s
 
 .. code-block:: matlab
 
-    Request.r[N] = ["[Function]" "[FileIdentifier]" "[StructuredArrayPath]" "[RequestedVariable]"]
+    Request.r[N] = ["[Function]" "[FileIdentifier]" "[Option]" "[StructuredArrayPath]" "[RequestedVariable]"]
 
 **Function:** The following functions are so far available:
 
-#. ``i`` which denotes a unique identifer, or identifiers acting as an unique finger print to associate outputs from different data sets to one single array entry. Important to note here is that they must be present in all data sets. For instance for a mesh density study where the variable that is changed is defined by a ``MeshSizeMax`` then this will be the variable to track. But likewise if there are for instance :math:`6` unique variables that would idnetify a models are changed, then they need to be identified as such. The data must be in the follwing format :math:`1 \times 1`
+#. ``i`` which denotes a unique **Identifer**, or identifiers acting as an unique finger print to associate outputs from different data sets to one single array entry. Important to note here is that they must be present in all data sets. For instance for a mesh density study where the variable that is changed is defined by a ``MeshSizeMax`` then this will be the variable to track. But likewise if there are for instance :math:`6` unique variables that would idnetify a models are changed, then they need to be identified as such. The data must be in the follwing format :math:`1 \times 1`
 
-#. ``s`` denotes a single output that is not an identifer. This may be some mesh data, or model data. It has to be noted that this data set will not be conditioned and must be of following format :math:`1 \times 1`. 
+#. ``s`` denotes a **Single** output that is not an identifer. This may be some mesh data, or model data. It has to be noted that this data set will not be conditioned and must be of following format :math:`1 \times 1`. 
 
+#. ``a`` offers the ability to extract data from an array that in not in the format of :math:`1 \times 1`. That said the output has to be in the format :math:`1 \times 1` format. The location needs to be specified in the options file where to get the data from. If there is a :math:`4 \times 4` matrix and the data from row :math:`2` culumn :math:`3` then the following needs to be entered as an option ``"2" "3"``.
 
+#. ``dP_max_U3`` this gets the maximum out-of-plain displacement in the :math:`z-`direction. The original data must be in the format :math:`1 \times n`.
+
+#. ``EA_max`` computes the *EA* at the maximum extension, or at the last interwall using the reaction forces 
+
+.. math::
+
+    \frac{F \times L}{d}
+
+#. ``EI_max``    = EI at maximum deflection
+
+#. ``RF_max``    = Reaction Force at maximum deflection
 
 
 
