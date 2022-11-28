@@ -48,6 +48,9 @@ Syntax
     
     dataSort;
 
+.. warning::
+    If there is a results drectory named ``Abaqus_NaN`` then this will be overrwritten! Ensure that this is appropriatly renamed.
+
 
 dataRead5
 ---------
