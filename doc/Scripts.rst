@@ -1,7 +1,7 @@
 Scripts
 =======
 
-This section documents individual scripts that either are necessary or useful in running GATORcell simulations. Each script is described in its most current version which is outlined in Compatability section in this documentation.
+This section documents individual scripts that either are necessary or useful in running GATORcell simulations. Each script is described in its most current version which is outlined in Compatability section in this documentation. Any depreciated scripts are documented in the **Depreciated Script** section of this documentation.
 
 runAbaqus4
 ----------
@@ -49,7 +49,22 @@ Syntax
     dataSort;
 
 
+dataRead4
+---------
 
+Description
++++++++++++
+
+This function reads data from all ``.mat`` files in a directory and sorts in a single array. Since the outputs that are required may vary quite significantly it is written in such an array that all data can be accessed with relative ease. To make a request an input structured array must be created; lets call it ``Request`` that contains a request variable that follows the convention ``r1``, ``r2``, ``r3``, etc. Each request consists of a string array which is structured as follows
+
+.. code-block:: matlab
+
+    r[N] = ["[Function]" "[FileIdentifier]" "[StructuredArrayPath]" "[RequestedVariable]"]
+
+**Function:** The following functions are so far available:
+#. ``i`` which denotes a unique identifer, or identifiers acting as an unique finger print to associate outputs from different data sets to one single array entry. For instance for a mesh density study where the variable that is changed is defined by a ``MeshSizeMax`` then this will be the variable to track. But likewise if there are for instance :math:`6` unique variables that would idnetify a models are changed, then they need to be identified as such. The data must be in the follwing format :math:`1 \times 1`
+
+#. ``s`` denotes a single output that is not an identifer. This may be some mesh data, or model data. It has to be noted that this data set will not be conditioned and must be of following format :math:`1 \times 1`. 
 
 
 
