@@ -49,7 +49,7 @@ Syntax
     dataSort;
 
 
-dataRead4
+dataRead5
 ---------
 
 Description
@@ -59,10 +59,10 @@ This function reads data from all ``.mat`` files in a directory and sorts in a s
 
 .. code-block:: matlab
 
-    r[N] = ["[Function]" "[FileIdentifier]" "[StructuredArrayPath]" "[RequestedVariable]"]
+    Request.r[N] = ["[Function]" "[FileIdentifier]" "[StructuredArrayPath]" "[RequestedVariable]"]
 
 **Function:** The following functions are so far available:
-#. ``i`` which denotes a unique identifer, or identifiers acting as an unique finger print to associate outputs from different data sets to one single array entry. For instance for a mesh density study where the variable that is changed is defined by a ``MeshSizeMax`` then this will be the variable to track. But likewise if there are for instance :math:`6` unique variables that would idnetify a models are changed, then they need to be identified as such. The data must be in the follwing format :math:`1 \times 1`
+#. ``i`` which denotes a unique identifer, or identifiers acting as an unique finger print to associate outputs from different data sets to one single array entry. Important to note here is that they must be present in all data sets. For instance for a mesh density study where the variable that is changed is defined by a ``MeshSizeMax`` then this will be the variable to track. But likewise if there are for instance :math:`6` unique variables that would idnetify a models are changed, then they need to be identified as such. The data must be in the follwing format :math:`1 \times 1`
 
 #. ``s`` denotes a single output that is not an identifer. This may be some mesh data, or model data. It has to be noted that this data set will not be conditioned and must be of following format :math:`1 \times 1`. 
 
