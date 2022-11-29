@@ -72,7 +72,7 @@ This function reads data from all ``.mat`` files in a directory and sorts in a s
 
 #. ``a`` offers the ability to extract data from an array that in not in the format of :math:`1 \times 1`. That said the output has to be in the format :math:`1 \times 1` format. The location needs to be specified in the options file where to get the data from. If there is a :math:`4 \times 4` matrix and the data from row :math:`2` culumn :math:`3` then the following needs to be entered as an option ``"2" "3"``.
 
-#. ``dP_max_U3`` this gets the maximum out-of-plain displacement in the :math:`z-`direction. The original data must be in the format :math:`1 \times n`.
+#. ``dP_max_U3`` this gets the maximum out-of-plain displacement in the :math:`z`-direction. The original data must be in the format :math:`1 \times n`.
 
 #. ``EA_max`` computes the *EA* at the maximum extension, or at the last interwall using the reaction forces using the following equation, where the original data must be in the format :math:`1 \times n`.
 
