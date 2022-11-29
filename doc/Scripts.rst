@@ -86,7 +86,36 @@ This function reads data from all ``.mat`` files in a directory and sorts in a s
      
     \frac{FL^3}{48d}
 
-#. ``RF_max``    = Reaction Force at maximum deflection
+#. ``RF_max`` Computes the sum of all reaction forces at maximum extension. The original data must be in the format :math:`1 \times n`.
 
+**FileIdentifier:** The file identifer categorises the model according to a common pattern in the file name. For instance in a file name ``EA_test_1.inp`` where ``EA_`` is the common pattern.
 
+**RequestedVariable:** Defines the path to the data. For instance if it is stored in ``Input.CoreParameters.Mesh`` then each level needs to be specified as a string like the following ``"Input" "CoreParameters" "Mesh"``.
 
+**RequestedVariable:** This is the variable that is requested. It must be in a string format. Note that in the output prompt it will save the variable name if the ``i``, ``s``, ``a`` or ``RF_max`` functions are used. For the ``EA_max`` and ``EI_max`` functions the actual functions are printed for clarity.
+
+Input Examples
+++++++++++++++
+
+.. code-block:: matlab
+
+    Request.r1  = ["i" "DP_" "Input" "CoreParameters" "t"];
+    Request.r2  = ["i" "DP_" "Input" "CoreParameters" "theta"];
+    Request.r3  = ["i" "DP_" "Input" "CoreParameters" "z"];
+    Request.r4  = ["i" "DP_" "Input" "CoreParameters" "h"];
+    Request.r5  = ["i" "DP_" "Input" "CoreParameters" "dE"];
+    Request.r6  = ["i" "DP_" "Input" "CoreParameters" "ts"];
+    Request.r7  = ["a" "DP_" "1" "1" "Output" "TotalCpuTime"];
+    Request.r8  = ["a" "DP_" "2" "1" "Output" "TotalCpuTime"];
+    Request.r9  = ["s" "EA_" "Input" "CoreParameters" "xmax"];
+    Request.r10 = ["s" "EA_" "Input" "CoreParameters" "ymax"];
+    Request.r11 = ["EA_max" "EA_" "Output" "Step_1" "History_1" "RF2"];
+    Request.r12 = ["EI_max" "EI_" "Output" "Step_1" "History_1" "RF3"];
+    Request.r13 = ["dP_max_U3" "DP_" "Output" "Step_2" "History_1" "U3"];
+
+Syntax
+++++++
+
+.. code-block:: matlab
+
+    [ModelData] = dataRead5(Path,Dir,Request,moveFiles)
