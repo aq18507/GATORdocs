@@ -74,13 +74,17 @@ This function reads data from all ``.mat`` files in a directory and sorts in a s
 
 #. ``dP_max_U3`` this gets the maximum out-of-plain displacement in the :math:`z-`direction. The original data must be in the format :math:`1 \times n`.
 
-#. ``EA_max`` computes the *EA* at the maximum extension, or at the last interwall using the reaction forces 
+#. ``EA_max`` computes the *EA* at the maximum extension, or at the last interwall using the reaction forces using the following equation, where the original data must be in the format :math:`1 \times n`.
 
 .. math::
 
-    \frac{F \times L}{d}
+    \frac{FL}{d}
 
-#. ``EI_max``    = EI at maximum deflection
+#. ``EI_max`` computes the *EA* at the maximum extension, or at the last interwall using the reaction forces using the following equation, where the original data must be in the format :math:`1 \times n`.
+
+.. math::
+     
+    \frac{FL^3}{48d}
 
 #. ``RF_max``    = Reaction Force at maximum deflection
 
