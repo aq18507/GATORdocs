@@ -18,7 +18,7 @@ The ``runAbaqus4`` script is designed to run abaqus from ``Matlab`` over command
 #. Once all models are solved ``runAbaqus4`` will call the ``dataSort`` function to append the reults from the ``.dat`` files into the corresponding ``.mat`` file.
 
 .. warning::
-    There are known cases where this fuction fails to complete, this mostly happens when the ``dataSort`` function is called. This is caused by some files the are not properly closed. This can only be solved by restarting the computer and re-run the ``dataSort`` function.
+    There are known cases where this fuction fails to complete, this mostly happens when the ``dataSort`` function is called. This is caused by some files the are not properly closed by Abaqus (the causes are at the time of writing is unknown). If this is the case open the Windows Task Manager (``CTRL + ALT + DEL``) and look for the process/es Name **SMAStaMain**. Right click on the process and select ``End Process``. Repeat if there are more than one of those still running. If they cannot be found then they may be hidden under the **MatlabR20xxx** tab. Once this is done run ``dataSort`` from command line, noting that you may need to run the preamble to index the scripts directory.
 
 
 Optional Parameters
@@ -31,6 +31,25 @@ Syntax
 .. code-block:: matlab
     
     runAbaqus4;
+
+findRunningPorcess
+------------------
+
+Description
++++++++++++
+
+This function determines whether Abaqus ``standard.exe`` is still running. If it is a dialog window is called up in Matlab notifying that it is still running. Click ``OK`` to procede. The next window will present the option of either to wait until all models are finished or to kill all Abaqus proceses.
+
+Syntax
+++++++
+
+.. code-block:: matlab
+
+    findRunningProcess;
+
+.. warning::
+
+    Clicking ``OK`` will terminate all running ``standard.exe`` proceses. This means that the model in question may not get completed.
 
 
 dataSort
