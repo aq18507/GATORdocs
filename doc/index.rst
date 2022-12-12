@@ -16,6 +16,7 @@ Welcome to the GATORcell documentation. This website is here to aid you though t
    ShapeFile
    Scripts
    Depreciated_Scripts
+   Usefulhints
 
 
 .. Indices and tables

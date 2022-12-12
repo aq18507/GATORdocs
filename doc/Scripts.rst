@@ -1,24 +1,24 @@
 Scripts
 =======
 
-This section documents individual scripts that either are necessary or useful in running GATORcell simulations. Each script is described in its most current version which is outlined in Compatability section in this documentation. Any depreciated scripts are documented in the **Depreciated Script** section of this documentation.
+This section documents individual scripts that either is necessary or useful in running GATORcell simulations. Each script is described in its most current version which is outlined in the Compatability section in this documentation. Any depreciated scripts are documented in the **Depreciated Script** section of this documentation.
 
 runAbaqus4
 ----------
 
-Desctiption
+Description
 +++++++++++
 
-The ``runAbaqus4`` script is designed to run abaqus from ``Matlab`` over command line using the ``.inp`` files and corrsponding ``.mat`` files stored in the same directory. To run in its basic versions it does not require an inptut, i.e. the function only needs to be called.
+The ``runAbaqus4`` script is designed to run abaqus from ``Matlab`` over the command line using the ``.inp`` files and corresponding ``.mat`` files stored in the same directory. To run in its basic versions it does not require an input, i.e. the function only needs to be called.
 
-**Working Priniciple**
+**Working Principle**
 
 #. It scans the directory for ``.inp`` and ``.mat`` files. Once it has generated a list it will submit all files to ABAQUS.
-#. There is a gatekeeper function to prevent CPU and Memory overlaod. The parameter ``NumberOfModels = 6`` which means that it can run 6 models in parallel. It will do this on one single core, which provides the computer with two cores overhead.
+#. There is a gatekeeper function to prevent CPU and Memory overload. The parameter ``NumberOfModels = 6`` which means that it can run 6 models in parallel. It will do this on one single core, which provides the computer with two cores overhead.
 #. Once all models are solved ``runAbaqus4`` will call the ``dataSort`` function to append the reults from the ``.dat`` files into the corresponding ``.mat`` file.
 
 .. warning::
-    There are known cases where this fuction fails to complete, this mostly happens when the ``dataSort`` function is called. This is caused by some files the are not properly closed by Abaqus (the causes are at the time of writing is unknown). If this is the case open the Windows Task Manager (``CTRL + ALT + DEL``) and look for the process/es Name **SMAStaMain**. Right click on the process and select ``End Process``. Repeat if there are more than one of those still running. If they cannot be found then they may be hidden under the **MatlabR20xxx** tab. Once this is done run ``dataSort`` from command line, noting that you may need to run the preamble to index the scripts directory.
+    There are known cases where this function fails to complete, this mostly happens when the ``dataSort`` function is called. This is caused by some files the are not properly closed by Abaqus (the causes are at the time of writing unknown). If this is the case open the Windows Task Manager (``CTRL + ALT + DEL``) and look for the process/es Name **SMAStaMain**. Right-click on the process and select ``End Process``. Repeat if there is more than one of those still running. If they cannot be found then they may be hidden under the **MatlabR20xxx** tab. Once this is done run ``dataSort`` from the command line, noting that you may need to run the preamble to index the scripts directory.
 
 
 Optional Parameters
@@ -38,7 +38,7 @@ findRunningPorcess
 Description
 +++++++++++
 
-This function determines whether Abaqus ``standard.exe`` is still running. If it is a dialog window is called up in Matlab notifying that it is still running. Click ``OK`` to procede. The next window will present the option of either to wait until all models are finished or to kill all Abaqus proceses.
+This function determines whether Abaqus ``standard.exe`` is still running. If it is a dialogue window is called up in Matlab notifying that it is still running. Click ``OK`` to proceed. The next window will present the option of either waiting until all models are finished or killing all Abaqus processes.
 
 Syntax
 ++++++
@@ -49,7 +49,7 @@ Syntax
 
 .. warning::
 
-    Clicking ``OK`` will terminate all running ``standard.exe`` proceses. This means that the model in question may not get completed.
+    Clicking ``OK`` will terminate all running ``standard.exe`` processes. This means that the model in question may not get completed.
 
 
 dataSort
@@ -58,7 +58,7 @@ dataSort
 Description
 +++++++++++
 
-The ``dataSort`` script takes all data from an analysis and sorts it into directiores. This script does not require any inputs. It indexes all ``.dat`` files. It then appends the results into the corresponding ``.mat`` files with the structured array named ``Output``. This scrpit is stored in the ``Script`` directory, which means that if it is run for the first time it will required the working directory to be indexted. This can either be done manually or by running the ``preamble;`` command, providing the file exists in the working directory.
+The ``dataSort`` script takes all data from an analysis and sorts it into directories. This script does not require any inputs. It indexes all ``.dat`` files. It then appends the results into the corresponding ``.mat`` files with the structured array named ``Output``. This script is stored in the ``Script`` directory, which means that if it is run for the first time it will require the working directory to be indexed. This can either be done manually or by running the ``preamble;`` command, providing the file exists in the working directory.
 
 Syntax
 ++++++
@@ -68,7 +68,7 @@ Syntax
     dataSort;
 
 .. warning::
-    If there is a results drectory named ``Abaqus_NaN`` then this will be overrwritten! Ensure that this is appropriatly renamed.
+    If there is a results directory named ``Abaqus_NaN`` then this will be overwritten! Ensure that this is appropriately renamed.
 
 
 dataRead5
@@ -77,7 +77,7 @@ dataRead5
 Description
 +++++++++++
 
-This function reads data from all ``.mat`` files in a directory and sorts in a single array. Since the outputs that are required may vary quite significantly it is written in such an array that all data can be accessed with relative ease. To make a request an input structured array must be created; lets call it ``Request`` that contains a request variable that follows the convention ``r1``, ``r2``, ``r3``, etc. Each request consists of a string array which is structured as follows
+This function reads data from all ``.mat`` files in a directory and sorts them in a single array. Since the outputs that are required may vary quite significantly it is written in such an array that all data can be accessed with relative ease. To make a request an input structured array must be created; let's call it ``Request`` that contains a request variable that follows the convention ``r1``, ``r2``, ``r3``, etc. Each request consists of a string array which is structured as follows
 
 .. code-block:: matlab
 
@@ -85,7 +85,7 @@ This function reads data from all ``.mat`` files in a directory and sorts in a s
 
 **Function:** The following functions are so far available:
 
-#. ``i`` which denotes a unique **Identifer**, or identifiers acting as an unique finger print to associate outputs from different data sets to one single array entry. Important to note here is that they must be present in all data sets. For instance for a mesh density study where the variable that is changed is defined by a ``MeshSizeMax`` then this will be the variable to track. But likewise if there are for instance :math:`6` unique variables that would idnetify a models are changed, then they need to be identified as such. The data must be in the follwing format :math:`1 \times 1`
+#. ``i`` denotes a unique **Identifier**, or identifiers acting as a unique fingerprint to associate outputs from different data sets to one single array entry. Important to note here is that they must be present in all data sets. For instance for a mesh density study where the variable that is changed is defined by a ``MeshSizeMax`` then this will be the variable to track. But likewise if there are for instance :math:`6` unique variables that would idnetify a models are changed, then they need to be identified as such. The data must be in the follwing format :math:`1 \times 1`
 
 #. ``s`` denotes a **Single** output that is not an identifer. This may be some mesh data, or model data. It has to be noted that this data set will not be conditioned and must be of following format :math:`1 \times 1`. 
 
