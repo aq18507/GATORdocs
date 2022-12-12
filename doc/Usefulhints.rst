@@ -15,4 +15,4 @@ Since this program is very resource-intensive it can be useful to run this on a 
 
 #. Keep the ``Windows PowerShell`` window open until the program has finished and you want to log off
 
-Check the source for more information: `jamesfreeman959/keepawake.ps1 <https://gist.github.com/jamesfreeman959/231b068c3d1ed6557675f21c0e346a9c>_`
+Check the source for more information: `jamesfreeman959/keepawake.ps1 <https://gist.github.com/jamesfreeman959/231b068c3d1ed6557675f21c0e346a9c>`_
