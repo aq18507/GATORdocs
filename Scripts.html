@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scripts &mdash; GATORcell Documentation beta:6.221119 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Useful Hints" href="Usefulhints.html" />
+    <link rel="prev" title="Shape File" href="ShapeFile.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html">
+            <img src="_static/GATOR_logo_v1.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                beta:6.221119
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Working_Principle.html">Working principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Compatability.html">Comapatbility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Syntax.html">Syntax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ShapeFile.html">Shape File</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Scripts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#runabaqus4">runAbaqus4</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#optional-parameters">Optional Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#syntax">Syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#findrunningporcess">findRunningPorcess</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#datasort">dataSort</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dataread5">dataRead5</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#input-examples">Input Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Syntax</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Usefulhints.html">Useful Hints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Depreciated_Scripts.html">Depreciated Scripts</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GATORcell Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Scripts</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Scripts.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="scripts">
+<h1>Scripts<a class="headerlink" href="#scripts" title="Permalink to this heading"></a></h1>
+<p>This section documents individual scripts that either is necessary or useful in running GATORcell simulations. Each script is described in its most current version which is outlined in the Compatability section in this documentation. Any depreciated scripts are documented in the <strong>Depreciated Script</strong> section of this documentation.</p>
+<section id="runabaqus4">
+<h2>runAbaqus4<a class="headerlink" href="#runabaqus4" title="Permalink to this heading"></a></h2>
+<section id="description">
+<h3>Description<a class="headerlink" href="#description" title="Permalink to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">runAbaqus4</span></code> script is designed to run abaqus from <code class="docutils literal notranslate"><span class="pre">Matlab</span></code> over the command line using the <code class="docutils literal notranslate"><span class="pre">.inp</span></code> files and corresponding <code class="docutils literal notranslate"><span class="pre">.mat</span></code> files stored in the same directory. To run in its basic versions it does not require an input, i.e. the function only needs to be called.</p>
+<p><strong>Working Principle</strong></p>
+<ol class="arabic simple">
+<li><p>It scans the directory for <code class="docutils literal notranslate"><span class="pre">.inp</span></code> and <code class="docutils literal notranslate"><span class="pre">.mat</span></code> files. Once it has generated a list it will submit all files to ABAQUS.</p></li>
+<li><p>There is a gatekeeper function to prevent CPU and Memory overload. The parameter <code class="docutils literal notranslate"><span class="pre">NumberOfModels</span> <span class="pre">=</span> <span class="pre">6</span></code> which means that it can run 6 models in parallel. It will do this on one single core, which provides the computer with two cores overhead.</p></li>
+<li><p>Once all models are solved <code class="docutils literal notranslate"><span class="pre">runAbaqus4</span></code> will call the <code class="docutils literal notranslate"><span class="pre">dataSort</span></code> function to append the reults from the <code class="docutils literal notranslate"><span class="pre">.dat</span></code> files into the corresponding <code class="docutils literal notranslate"><span class="pre">.mat</span></code> file.</p></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>There are known cases where this function fails to complete, this mostly happens when the <code class="docutils literal notranslate"><span class="pre">dataSort</span></code> function is called. This is caused by some files the are not properly closed by Abaqus (the causes are at the time of writing unknown). If this is the case open the Windows Task Manager (<code class="docutils literal notranslate"><span class="pre">CTRL</span> <span class="pre">+</span> <span class="pre">ALT</span> <span class="pre">+</span> <span class="pre">DEL</span></code>) and look for the process/es Name <strong>SMAStaMain</strong>. Right-click on the process and select <code class="docutils literal notranslate"><span class="pre">End</span> <span class="pre">Process</span></code>. Repeat if there is more than one of those still running. If they cannot be found then they may be hidden under the <strong>MatlabR20xxx</strong> tab. Once this is done run <code class="docutils literal notranslate"><span class="pre">dataSort</span></code> from the command line, noting that you may need to run the preamble to index the scripts directory.</p>
+</div>
+</section>
+<section id="optional-parameters">
+<h3>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">NumberOfModels</span></code> which limits the number of simulations to be run in parallel. Default == <span class="math notranslate nohighlight">\(6\)</span></p></li>
+</ol>
+</section>
+<section id="syntax">
+<h3>Syntax<a class="headerlink" href="#syntax" title="Permalink to this heading"></a></h3>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">runAbaqus4</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="findrunningporcess">
+<h2>findRunningPorcess<a class="headerlink" href="#findrunningporcess" title="Permalink to this heading"></a></h2>
+<section id="id1">
+<h3>Description<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<p>This function determines whether Abaqus <code class="docutils literal notranslate"><span class="pre">standard.exe</span></code> is still running. If it is a dialogue window is called up in Matlab notifying that it is still running. Click <code class="docutils literal notranslate"><span class="pre">OK</span></code> to proceed. The next window will present the option of either waiting until all models are finished or killing all Abaqus processes.</p>
+</section>
+<section id="id2">
+<h3>Syntax<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">findRunningProcess</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Clicking <code class="docutils literal notranslate"><span class="pre">OK</span></code> will terminate all running <code class="docutils literal notranslate"><span class="pre">standard.exe</span></code> processes. This means that the model in question may not get completed.</p>
+</div>
+</section>
+</section>
+<section id="datasort">
+<h2>dataSort<a class="headerlink" href="#datasort" title="Permalink to this heading"></a></h2>
+<section id="id3">
+<h3>Description<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">dataSort</span></code> script takes all data from an analysis and sorts it into directories. This script does not require any inputs. It indexes all <code class="docutils literal notranslate"><span class="pre">.dat</span></code> files. It then appends the results into the corresponding <code class="docutils literal notranslate"><span class="pre">.mat</span></code> files with the structured array named <code class="docutils literal notranslate"><span class="pre">Output</span></code>. This script is stored in the <code class="docutils literal notranslate"><span class="pre">Script</span></code> directory, which means that if it is run for the first time it will require the working directory to be indexed. This can either be done manually or by running the <code class="docutils literal notranslate"><span class="pre">preamble;</span></code> command, providing the file exists in the working directory.</p>
+</section>
+<section id="id4">
+<h3>Syntax<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">dataSort</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If there is a results directory named <code class="docutils literal notranslate"><span class="pre">Abaqus_NaN</span></code> then this will be overwritten! Ensure that this is appropriately renamed.</p>
+</div>
+</section>
+</section>
+<section id="dataread5">
+<h2>dataRead5<a class="headerlink" href="#dataread5" title="Permalink to this heading"></a></h2>
+<section id="id5">
+<h3>Description<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
+<p>This function reads data from all <code class="docutils literal notranslate"><span class="pre">.mat</span></code> files in a directory and sorts them in a single array. Since the outputs that are required may vary quite significantly it is written in such an array that all data can be accessed with relative ease. To make a request an input structured array must be created; let’s call it <code class="docutils literal notranslate"><span class="pre">Request</span></code> that contains a request variable that follows the convention <code class="docutils literal notranslate"><span class="pre">r1</span></code>, <code class="docutils literal notranslate"><span class="pre">r2</span></code>, <code class="docutils literal notranslate"><span class="pre">r3</span></code>, etc. Each request consists of a string array which is structured as follows</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Request</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">N</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;[Function]&quot;</span><span class="w"> </span><span class="s">&quot;[FileIdentifier]&quot;</span><span class="w"> </span><span class="s">&quot;[Option]&quot;</span><span class="w"> </span><span class="s">&quot;[StructuredArrayPath]&quot;</span><span class="w"> </span><span class="s">&quot;[RequestedVariable]&quot;</span><span class="p">]</span><span class="w"></span>
+</pre></div>
+</div>
+<p><strong>Function:</strong> The following functions are so far available:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">i</span></code> denotes a unique <strong>Identifier</strong>, or identifiers acting as a unique fingerprint to associate outputs from different data sets to one single array entry. Important to note here is that they must be present in all data sets. For instance for a mesh density study where the variable that is changed is defined by a <code class="docutils literal notranslate"><span class="pre">MeshSizeMax</span></code> then this will be the variable to track. But likewise if there are for instance <span class="math notranslate nohighlight">\(6\)</span> unique variables that would idnetify a models are changed, then they need to be identified as such. The data must be in the follwing format <span class="math notranslate nohighlight">\(1 \times 1\)</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">s</span></code> denotes a <strong>Single</strong> output that is not an identifer. This may be some mesh data, or model data. It has to be noted that this data set will not be conditioned and must be of following format <span class="math notranslate nohighlight">\(1 \times 1\)</span>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a</span></code> offers the ability to extract data from an array that in not in the format of <span class="math notranslate nohighlight">\(1 \times 1\)</span>. That said the output has to be in the format <span class="math notranslate nohighlight">\(1 \times 1\)</span> format. The location needs to be specified in the options file where to get the data from. If there is a <span class="math notranslate nohighlight">\(4 \times 4\)</span> matrix and the data from row <span class="math notranslate nohighlight">\(2\)</span> culumn <span class="math notranslate nohighlight">\(3\)</span> then the following needs to be entered as an option <code class="docutils literal notranslate"><span class="pre">&quot;2&quot;</span> <span class="pre">&quot;3&quot;</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dP_max_U3</span></code> this gets the maximum out-of-plain displacement in the <span class="math notranslate nohighlight">\(z\)</span>-direction. The original data must be in the format <span class="math notranslate nohighlight">\(1 \times n\)</span>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EA_max</span></code> computes the <em>EA</em> at the maximum extension, or at the last interwall using the reaction forces using the following equation, where the original data must be in the format <span class="math notranslate nohighlight">\(1 \times n\)</span>.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\frac{FL}{d}\]</div>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">EI_max</span></code> computes the <em>EA</em> at the maximum extension, or at the last interwall using the reaction forces using the following equation, where the original data must be in the format <span class="math notranslate nohighlight">\(1 \times n\)</span>.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\frac{FL^3}{48d}\]</div>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">RF_max</span></code> Computes the sum of all reaction forces at maximum extension. The original data must be in the format <span class="math notranslate nohighlight">\(1 \times n\)</span>.</p></li>
+</ol>
+<p><strong>FileIdentifier:</strong> The file identifer categorises the model according to a common pattern in the file name. For instance in a file name <code class="docutils literal notranslate"><span class="pre">EA_test_1.inp</span></code> where <code class="docutils literal notranslate"><span class="pre">EA_</span></code> is the common pattern.</p>
+<p><strong>RequestedVariable:</strong> Defines the path to the data. For instance if it is stored in <code class="docutils literal notranslate"><span class="pre">Input.CoreParameters.Mesh</span></code> then each level needs to be specified as a string like the following <code class="docutils literal notranslate"><span class="pre">&quot;Input&quot;</span> <span class="pre">&quot;CoreParameters&quot;</span> <span class="pre">&quot;Mesh&quot;</span></code>.</p>
+<p><strong>RequestedVariable:</strong> This is the variable that is requested. It must be in a string format. Note that in the output prompt it will save the variable name if the <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">s</span></code>, <code class="docutils literal notranslate"><span class="pre">a</span></code> or <code class="docutils literal notranslate"><span class="pre">RF_max</span></code> functions are used. For the <code class="docutils literal notranslate"><span class="pre">EA_max</span></code> and <code class="docutils literal notranslate"><span class="pre">EI_max</span></code> functions the actual functions are printed for clarity.</p>
+</section>
+<section id="input-examples">
+<h3>Input Examples<a class="headerlink" href="#input-examples" title="Permalink to this heading"></a></h3>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Request</span><span class="p">.</span><span class="n">r1</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;i&quot;</span><span class="w"> </span><span class="s">&quot;DP_&quot;</span><span class="w"> </span><span class="s">&quot;Input&quot;</span><span class="w"> </span><span class="s">&quot;CoreParameters&quot;</span><span class="w"> </span><span class="s">&quot;t&quot;</span><span class="p">];</span><span class="w"></span>
+<span class="n">Request</span><span class="p">.</span><span class="n">r2</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;i&quot;</span><span class="w"> </span><span class="s">&quot;DP_&quot;</span><span class="w"> </span><span class="s">&quot;Input&quot;</span><span class="w"> </span><span class="s">&quot;CoreParameters&quot;</span><span class="w"> </span><span class="s">&quot;theta&quot;</span><span class="p">];</span><span class="w"></span>
+<span class="n">Request</span><span class="p">.</span><span class="n">r3</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;i&quot;</span><span class="w"> </span><span class="s">&quot;DP_&quot;</span><span class="w"> </span><span class="s">&quot;Input&quot;</span><span class="w"> </span><span class="s">&quot;CoreParameters&quot;</span><span class="w"> </span><span class="s">&quot;z&quot;</span><span class="p">];</span><span class="w"></span>
+<span class="n">Request</span><span class="p">.</span><span class="n">r4</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;i&quot;</span><span class="w"> </span><span class="s">&quot;DP_&quot;</span><span class="w"> </span><span class="s">&quot;Input&quot;</span><span class="w"> </span><span class="s">&quot;CoreParameters&quot;</span><span class="w"> </span><span class="s">&quot;h&quot;</span><span class="p">];</span><span class="w"></span>
+<span class="n">Request</span><span class="p">.</span><span class="n">r5</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;i&quot;</span><span class="w"> </span><span class="s">&quot;DP_&quot;</span><span class="w"> </span><span class="s">&quot;Input&quot;</span><span class="w"> </span><span class="s">&quot;CoreParameters&quot;</span><span class="w"> </span><span class="s">&quot;dE&quot;</span><span class="p">];</span><span class="w"></span>
+<span class="n">Request</span><span class="p">.</span><span class="n">r6</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;i&quot;</span><span class="w"> </span><span class="s">&quot;DP_&quot;</span><span class="w"> </span><span class="s">&quot;Input&quot;</span><span class="w"> </span><span class="s">&quot;CoreParameters&quot;</span><span class="w"> </span><span class="s">&quot;ts&quot;</span><span class="p">];</span><span class="w"></span>
+<span class="n">Request</span><span class="p">.</span><span class="n">r7</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;a&quot;</span><span class="w"> </span><span class="s">&quot;DP_&quot;</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="s">&quot;Output&quot;</span><span class="w"> </span><span class="s">&quot;TotalCpuTime&quot;</span><span class="p">];</span><span class="w"></span>
+<span class="n">Request</span><span class="p">.</span><span class="n">r8</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;a&quot;</span><span class="w"> </span><span class="s">&quot;DP_&quot;</span><span class="w"> </span><span class="s">&quot;2&quot;</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="s">&quot;Output&quot;</span><span class="w"> </span><span class="s">&quot;TotalCpuTime&quot;</span><span class="p">];</span><span class="w"></span>
+<span class="n">Request</span><span class="p">.</span><span class="n">r9</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;s&quot;</span><span class="w"> </span><span class="s">&quot;EA_&quot;</span><span class="w"> </span><span class="s">&quot;Input&quot;</span><span class="w"> </span><span class="s">&quot;CoreParameters&quot;</span><span class="w"> </span><span class="s">&quot;xmax&quot;</span><span class="p">];</span><span class="w"></span>
+<span class="n">Request</span><span class="p">.</span><span class="n">r10</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;s&quot;</span><span class="w"> </span><span class="s">&quot;EA_&quot;</span><span class="w"> </span><span class="s">&quot;Input&quot;</span><span class="w"> </span><span class="s">&quot;CoreParameters&quot;</span><span class="w"> </span><span class="s">&quot;ymax&quot;</span><span class="p">];</span><span class="w"></span>
+<span class="n">Request</span><span class="p">.</span><span class="n">r11</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;EA_max&quot;</span><span class="w"> </span><span class="s">&quot;EA_&quot;</span><span class="w"> </span><span class="s">&quot;Output&quot;</span><span class="w"> </span><span class="s">&quot;Step_1&quot;</span><span class="w"> </span><span class="s">&quot;History_1&quot;</span><span class="w"> </span><span class="s">&quot;RF2&quot;</span><span class="p">];</span><span class="w"></span>
+<span class="n">Request</span><span class="p">.</span><span class="n">r12</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;EI_max&quot;</span><span class="w"> </span><span class="s">&quot;EI_&quot;</span><span class="w"> </span><span class="s">&quot;Output&quot;</span><span class="w"> </span><span class="s">&quot;Step_1&quot;</span><span class="w"> </span><span class="s">&quot;History_1&quot;</span><span class="w"> </span><span class="s">&quot;RF3&quot;</span><span class="p">];</span><span class="w"></span>
+<span class="n">Request</span><span class="p">.</span><span class="n">r13</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;dP_max_U3&quot;</span><span class="w"> </span><span class="s">&quot;DP_&quot;</span><span class="w"> </span><span class="s">&quot;Output&quot;</span><span class="w"> </span><span class="s">&quot;Step_2&quot;</span><span class="w"> </span><span class="s">&quot;History_1&quot;</span><span class="w"> </span><span class="s">&quot;U3&quot;</span><span class="p">];</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="id6">
+<h3>Syntax<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h3>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">ModelData</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dataRead5</span><span class="p">(</span><span class="n">Path</span><span class="p">,</span><span class="n">Dir</span><span class="p">,</span><span class="n">Request</span><span class="p">,</span><span class="n">moveFiles</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ShapeFile.html" class="btn btn-neutral float-left" title="Shape File" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Usefulhints.html" class="btn btn-neutral float-right" title="Useful Hints" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, RMH Aerospace.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
