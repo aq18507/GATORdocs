@@ -138,3 +138,19 @@ Syntax
 .. code-block:: matlab
 
     [ModelData] = dataRead5(Path,Dir,Request,moveFiles)
+
+
+licenseCounter
+--------------
+
+Description
++++++++++++
+
+This function counts the number of ABAQUS licences used by the computer from which the command is executed. There are no inputs to this function, it will find the computer name and then run the ABAQUS command ``abaqus licensing dslsstat -usage`` to determine the number of licences. ABAQUS takes out 50 tokens per licence and the fair usage policy is at the time of writing 400 tokens, which would equate to 8 individual licences.
+
+Syntax
+++++++
+
+.. code-block:: matlab
+
+    License_num = licenseCounter
