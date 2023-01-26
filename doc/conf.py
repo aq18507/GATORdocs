@@ -63,7 +63,7 @@ author = 'Rafael Heeb'
 # built documents.
 
 # The short X.Y version.
-version = 'beta:6.' + month + day # 'beta:6.221119'
+version = f'beta:6{year}{month}{day}' # 'beta:6.221119'
 # The full version, including alpha/beta/rc tags.
 release = 'beta:6.221119'
 
