@@ -103,7 +103,7 @@ todo_include_todos = False
 # a list of builtin themes.
 #
 html_theme = 'sphinx_rtd_theme'
-html_logo = "../figures/GATOR_logo_v1.png"
+html_logo = '../figures/GATOR_logo_v1.png'
 html_extra_path = ['../extra/']
 
 # Theme options are theme-specific and customize the look and feel of a theme
