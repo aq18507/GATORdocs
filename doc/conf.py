@@ -54,9 +54,9 @@ master_doc = 'index'
 # month = today.month
 # day = today.day
 
-year = 2023
-month = 01
-day = 26
+year = '2023'
+month = '01'
+day = '26'
 
 # General information about the project.
 project = 'GATORcell Documentation'
