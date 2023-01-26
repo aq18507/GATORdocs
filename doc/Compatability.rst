@@ -7,7 +7,7 @@ Current Version
 The latest GATORcell version relies on the following scripts and versions:
 
 +---------------------------------------------------------------+
-| GATORcell Version: v.|ProjectVersion|                         |
+| GATORcell Version: v. |ProjectVersion|                        |
 +-------------------+---------------+---------------------------+
 | Script            | Major Version | Script Name               |
 +===================+===============+===========================+
