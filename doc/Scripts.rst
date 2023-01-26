@@ -154,3 +154,16 @@ Syntax
 .. code-block:: matlab
 
     License_num = licenseCounter
+
+
+existingFiles
+-------------
+
+This function counts the number of files of a certain type present in the directory in which it is executed. It requires a string input with the desired file suffix, for example for a ``.mlx`` file the string ``mlx`` is required. Note that it will internally convert it to the following expression ``*.mlx``. The output is a cell-array containing a file name ``Files`` per cell and the number of files ``Size`` as a secondary output.
+
+Syntax
+++++++
+
+.. code-block:: matlab
+
+    [Files,Size] = existingFiles(FileType)
