@@ -48,6 +48,12 @@ source_suffix = '.rst'
 # The master toctree document.
 master_doc = 'index'
 
+# Todays date for release
+today = datetime.date.today()
+year = today.strftime("%Y")
+month = today.strftime("%M")
+day = today.strftime("%D")
+
 # General information about the project.
 project = 'GATORcell Documentation'
 copyright = '2022, RMH Aerospace'
@@ -57,13 +63,8 @@ author = 'Rafael Heeb'
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 
-today = datetime.date.today()
-year = today.strftime("%Y")
-month = today.strftime("%M")
-day = today.strftime("%D")
-
 # The short X.Y version.
-version = 'beta:6.' + month + day % 'beta:6.221119'
+version = 'beta:6.' + month + day # 'beta:6.221119'
 # The full version, including alpha/beta/rc tags.
 release = 'beta:6.221119'
 
