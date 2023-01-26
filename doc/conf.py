@@ -19,6 +19,7 @@
 #
 import os
 import sys
+import datetime
 sys.path.insert(0, os.path.abspath('../source'))
 
 
@@ -55,9 +56,14 @@ author = 'Rafael Heeb'
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
-#
+
+today = datetime.date.today()
+year = today.strftime("%Y")
+month = today.strftime("%M")
+day = today.strftime("%D")
+
 # The short X.Y version.
-version = 'beta:6.221119'
+version = 'beta:6.' + month + day % 'beta:6.221119'
 # The full version, including alpha/beta/rc tags.
 release = 'beta:6.221119'
 
