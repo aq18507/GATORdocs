@@ -184,10 +184,9 @@ texinfo_documents = [
 
 
 # rst epilog
-
-rst_epilog = """
-.. |ProjectVersion| replace:: v.{major}.{minor}
-""".format(
-major = major_version,
-minor = minor_version,
-)
+# rst_epilog = """
+# .. |ProjectVersion| replace:: v.{major}.{minor}
+# """.format(
+# major = major_version,
+# minor = minor_version,
+# )
