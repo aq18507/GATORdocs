@@ -63,7 +63,7 @@ author = 'Rafael Heeb'
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 
-major_version = 6
+major_version = '6'
 minor_version = f'{year}{month}{day}'
 
 # The short X.Y version.
@@ -106,7 +106,7 @@ html_extra_path = ['../extra/']
 #
 html_theme_options = {
     'logo_only': True,
-    'display_version': True,
+    'display_version': False,
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
