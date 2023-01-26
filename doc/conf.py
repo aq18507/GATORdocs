@@ -50,10 +50,9 @@ master_doc = 'index'
 
 # Todays date for release
 today = datetime.date.today()
-year = today.strftime("%Y")
-month = today.strftime("%M")
-day = today.strftime("%D")
-
+year = today.year
+month = today.month
+day = today.day
 # General information about the project.
 project = 'GATORcell Documentation'
 copyright = '2022, RMH Aerospace'
