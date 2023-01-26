@@ -49,10 +49,14 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # Todays date for release
-today = datetime.date.today()
-year = today.year
-month = today.month
-day = today.day
+# today = datetime.date.today()
+# year = today.year
+# month = today.month
+# day = today.day
+
+year = 2023
+month = 01
+day = 26
 
 # General information about the project.
 project = 'GATORcell Documentation'
@@ -184,9 +188,9 @@ texinfo_documents = [
 
 
 # rst epilog
-# rst_epilog = """
-# .. |ProjectVersion| replace:: v.{major}.{minor}
-# """.format(
-# major = major_version,
-# minor = minor_version,
-# )
+rst_epilog = """
+.. |ProjectVersion| replace:: v.{major}.{minor}
+""".format(
+major = major_version,
+minor = minor_version,
+)
