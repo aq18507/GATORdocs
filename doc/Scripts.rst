@@ -166,4 +166,20 @@ Syntax
 
 .. code-block:: matlab
 
-    [Files,Size] = existingFiles(FileType)
+    [Files,Size] = existingFiles(FileType);
+
+
+dirCombine
+----------
+
+This function combines the data of two directories and deletes the predefined directory. This function has two inputs and no output. The inputs have to be in string format. 
+
+**dir_1** The first directory is the one that is the one the second directory is gopying all its data to.
+**dir_2** The second directory is the one that is going to be deleted.
+
+Syntax
+++++++
+
+.. code-block:: matlab
+
+    dirCombine('dir_1',dir_2);
