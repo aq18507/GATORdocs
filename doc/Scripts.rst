@@ -182,7 +182,7 @@ Syntax
 
 .. code-block:: matlab
 
-    dirCombine('dir_1',dir_2);
+    dirCombine('dir_1','dir_2');
 
 
 recreateInp
