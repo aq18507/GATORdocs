@@ -183,3 +183,16 @@ Syntax
 .. code-block:: matlab
 
     dirCombine('dir_1',dir_2);
+
+
+recreateInp
+-----------
+
+This function recreates an input file (``.inp``), providing there is a healthy corresponding ``.mat`` file present. Note that this script does not need any input. It needs to be run from the directory in which the corrupted ``.inp`` files and the corresponding ``.mat`` are located.
+
+Syntax
+++++++
+
+.. code-block:: matlab
+
+    recreateInp();
