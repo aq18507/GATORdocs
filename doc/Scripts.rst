@@ -166,7 +166,7 @@ Syntax
 
 .. code-block:: matlab
 
-    [Files,Size] = existingFiles(FileType);
+    [Files,Size] = existingFiles('FileType');
 
 
 dirCombine
