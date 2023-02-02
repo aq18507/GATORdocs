@@ -146,14 +146,14 @@ licenseCounter
 Description
 +++++++++++
 
-This function counts the number of ABAQUS licences used by the computer from which the command is executed. There are no inputs to this function, it will find the computer name and then run the ABAQUS command ``abaqus licensing dslsstat -usage`` to determine the number of licences. ABAQUS takes out 50 tokens per licence and the fair usage policy is at the time of writing 400 tokens, which would equate to 8 individual licences. The ``License_availability`` returns the number of available in the first column and the licences used in the second column. The licence tags hard coded in this function are ``QXT`` and ``QSD``. The format is :math:`2\times n`.
+This function counts the number of ABAQUS licences used by the computer from which the command is executed. There are no inputs to this function, it will find the computer name and then run the ABAQUS command ``abaqus licensing dslsstat -usage`` to return the number of licences in ``License_num_user``. ABAQUS takes out 50 tokens per licence and the fair usage policy is at the time of writing 400 tokens, which would equate to 8 individual licences. The ``License_availability`` returns the number of available in the first column and the licences used in the second column. The licence tags hard coded in this function are ``QXT`` and ``QSD``. The format is :math:`2\times n`.
 
 Syntax
 ++++++
 
 .. code-block:: matlab
 
-    [License_num_user, License_availability] = licenseCounter()
+    [License_num_user, License_availability] = licenseCounter();
 
 
 existingFiles
