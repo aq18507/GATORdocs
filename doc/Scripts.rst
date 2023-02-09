@@ -202,7 +202,7 @@ Syntax
 printFigure
 -----------
 
-This function creates figures in ``EPS``, ``PDF`` and ``SVG`` formats. It has two inputs, the figure ``Figure`` and the file name ``Name`` (note that this is without the file suffix). The figure needs to be defined using the Matlab `figure <https://uk.mathworks.com/help/matlab/ref/figure.html>`_ command. For instance 
+This function creates figures in ``EPS``, ``PDF`` and ``SVG`` formats. It has two inputs, the figure ``Figure`` and the file name ``Name`` (note that this is without the file suffix). The figure needs to be defined using the `Matlab figure <https://uk.mathworks.com/help/matlab/ref/figure.html>`_ command. For instance in its simplest form:
 
 .. code-block:: matlab
 
@@ -215,4 +215,4 @@ Syntax
 
 .. code-block:: matlab
 
-    printFigure(f,"Name");
+    printFigure(f,'Name');
