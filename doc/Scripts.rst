@@ -159,6 +159,9 @@ Syntax
 existingFiles
 -------------
 
+Description
++++++++++++
+
 This function counts the number of files of a certain type present in the directory in which it is executed. It requires a string input with the desired file suffix, for example for a ``.mlx`` file the string ``mlx`` is required. Note that it will internally convert it to the following expression ``*.mlx``. The output is a cell-array containing a file name ``Files`` per cell and the number of files ``Size`` as a secondary output.
 
 Syntax
@@ -171,6 +174,9 @@ Syntax
 
 dirCombine
 ----------
+
+Description
++++++++++++
 
 This function combines the data of two directories and deletes the predefined directory. This function has two inputs and no output. The inputs have to be in string format. 
 
@@ -188,6 +194,9 @@ Syntax
 recreateInp
 -----------
 
+Description
++++++++++++
+
 This function recreates an input file (``.inp``), providing there is a healthy corresponding ``.mat`` file present. Note that this script does not need any input. It needs to be run from the directory in which the corrupted ``.inp`` files and the corresponding ``.mat`` are located.
 
 Syntax
@@ -201,6 +210,9 @@ Syntax
 
 printFigure
 -----------
+
+Description
++++++++++++
 
 This function creates figures in ``EPS``, ``PDF`` and ``SVG`` formats. It has two inputs, the figure ``Figure`` and the file name ``Name`` (note that this is without the file suffix). The figure needs to be defined using the `Matlab figure <https://uk.mathworks.com/help/matlab/ref/figure.html>`_ command. For instance in its simplest form:
 
