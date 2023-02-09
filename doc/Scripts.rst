@@ -236,7 +236,7 @@ setLaTex
 
 Description
 +++++++++++
-Running this function will set all formatting to ":math:\LaTeX". This function has no input or output.
+Running this function will set all formatting to :math:`\LaTeX`. This function has no input or output.
 
 Syntax
 ++++++
