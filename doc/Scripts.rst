@@ -228,3 +228,20 @@ Syntax
 .. code-block:: matlab
 
     printFigure(f,'Name');
+
+
+
+setLaTex
+--------
+
+Description
++++++++++++
+Running this function will set all formatting to ":math:\LaTeX". This function has no input or output.
+
+Syntax
+++++++
+
+.. code-block:: matlab
+
+    setLaTex;
+
