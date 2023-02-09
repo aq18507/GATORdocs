@@ -236,12 +236,12 @@ setLaTex
 
 Description
 +++++++++++
-Running this function will set all formatting to :math:`\mathrm{ \LaTeX }`. This function has no input or output.
+Running this function will set all formatting to :math:`\mathrm{ \LaTeX }`. This function requires to define the desired font size which is a numerical input in the format of :math:`1 \times 1`.
 
 Syntax
 ++++++
 
-.. code-block:: matlab
+.. code-block:: matlab(FontSize)
 
     setLaTeX;
 
