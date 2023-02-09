@@ -236,12 +236,12 @@ setLaTex
 
 Description
 +++++++++++
-Running this function will set all formatting to :math:`\text{\LaTeX}`. This function has no input or output.
+Running this function will set all formatting to :math:`\textrm{\LaTeX}`. This function has no input or output.
 
 Syntax
 ++++++
 
 .. code-block:: matlab
 
-    setLaTex;
+    setLaTeX;
 
