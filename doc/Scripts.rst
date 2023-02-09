@@ -196,3 +196,23 @@ Syntax
 .. code-block:: matlab
 
     recreateInp();
+
+
+
+printFigure
+-----------
+
+This function creates figures in ``EPS``, ``PDF`` and ``SVG`` formats. It has two inputs, the figure ``Figure`` and the file name ``Name`` (note that this is without the file suffix). The figure needs to be defined using the Matlab `figure <https://uk.mathworks.com/help/matlab/ref/figure.html>`_ command. For instance 
+
+.. code-block:: matlab
+
+    f = figure;
+
+The ``name`` must be in a string format. The relevant suffix will be added by the ``printFigure`` function. To keep all figures in one place this function will check whether there is a directory with the name ``FIGURE`` present within the directory in which it is executed. If there is no such directory present the function will create one and save all figures in there. Note that this function has no output.
+
+Syntax
+++++++
+
+.. code-block:: matlab
+
+    printFigure(f,"Name");
