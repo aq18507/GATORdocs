@@ -180,7 +180,7 @@ Description
 
 This function combines the data of two directories and deletes the predefined directory. This function has two inputs and no output. The inputs have to be in string format. 
 
-**dir_1** The first directory is the one that is the one the second directory is gopying all its data to.
+**dir_1** The first directory is the one that is the one the second directory is copying all its data to.
 **dir_2** The second directory is the one that is going to be deleted.
 
 Syntax
