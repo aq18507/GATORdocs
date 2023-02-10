@@ -97,6 +97,7 @@ todo_include_todos = False
 #
 html_theme = 'sphinx_rtd_theme'
 html_logo = '../_static/GATOR_logo_v1.png'
+html_favicon = '../_static/GATOR_logo_v2.png'
 html_extra_path = ['../extra/']
 
 # Theme options are theme-specific and customize the look and feel of a theme
