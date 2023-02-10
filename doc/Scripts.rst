@@ -218,7 +218,7 @@ This function creates figures in ``EPS``, ``PDF`` and ``SVG`` formats. It has tw
 
 .. code-block:: matlab
 
-    f = figure;
+    fig = figure;
 
 The ``name`` must be in a string format. The relevant suffix will be added by the ``printFigure`` function. To keep all figures in one place this function will check whether there is a directory with the name ``FIGURE`` present within the directory in which it is executed. If there is no such directory present the function will create one and save all figures in there. Note that this function has no output.
 
@@ -227,7 +227,7 @@ Syntax
 
 .. code-block:: matlab
 
-    printFigure(f,'Name');
+    printFigure(fig,'Name');
 
 
 
