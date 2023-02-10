@@ -96,7 +96,7 @@ todo_include_todos = False
 # a list of builtin themes.
 #
 html_theme = 'sphinx_rtd_theme'
-html_logo = '_static/GATOR_logo_v1.png'
+html_logo = '_static/GATOR_logo_v2.png'
 html_extra_path = ['../extra/']
 
 # Theme options are theme-specific and customize the look and feel of a theme
@@ -105,7 +105,7 @@ html_extra_path = ['../extra/']
 #
 html_theme_options = {
     'logo_only': True,
-    'display_version': False,
+    'display_version': True,
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
