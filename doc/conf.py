@@ -64,7 +64,7 @@ author = 'Rafael Heeb'
 # built documents.
 
 major_version = '6'
-minor_version = f'{year}{month}{day}'
+minor_version = f'{year}.{month}.{day}'
 
 # The short X.Y version.
 version = f'beta:{major_version}.{minor_version}'
