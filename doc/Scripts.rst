@@ -231,7 +231,7 @@ Syntax
 
 
 
-setLaTex
+setLaTeX
 --------
 
 Description
@@ -241,7 +241,7 @@ Running this function will set all formatting to :math:`\mathrm{ \LaTeX }`. This
 Syntax
 ++++++
 
-.. code-block:: matlab(FontSize)
+.. code-block:: matlab
 
-    setLaTeX;
+    setLaTeX(FontSize);
 
