@@ -1,4 +1,4 @@
-Comapatbility
+Compatibility
 =============
 
 Current Version

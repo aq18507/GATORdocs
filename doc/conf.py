@@ -34,7 +34,8 @@ sys.path.insert(0, os.path.abspath('../source'))
 # ones.
 extensions = [
     'sphinx_copybutton',
-    'sphinx.ext.autodoc'
+    'sphinx.ext.autodoc',
+    'sphinx.ext.autosectionlabel'
 ]
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
