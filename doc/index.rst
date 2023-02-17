@@ -18,7 +18,7 @@ The complete GATORcell code can be found here `GATORcell GitHub page <https://gi
    ShapeFile
    Scripts
    Depreciated_Scripts
-   gmsh
+   GMSH
 
  
 .. Indices and tables
