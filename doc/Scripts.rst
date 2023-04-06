@@ -256,7 +256,7 @@ This function extracts nodes which are enclosed in a volume.
     
 **NodeArray:** Is an array containing all the nodes which must be in the format of :math:`N \times 3`, with the following arrangement :math:`x`, :math:`y` and :math:`z`.
 
-**Range:** Defines the box, or area from which the nodes need to be extracted. This must be in the following format: `[xmin ymin zmin xmax ymax zmax]`.
+**Range:** Defines the box, or area from which the nodes need to be extracted. This must be in the following format: ``[xmin ymin zmin xmax ymax zmax]``.
 
 **Precision:** This is an offset value, which can be used to increase the size of the box. It has to be noted that it will add this in all directions. If the box is defined properly, then it may not be needed and can be set to :math:`0`.
 
