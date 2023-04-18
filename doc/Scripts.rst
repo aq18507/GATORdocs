@@ -279,7 +279,7 @@ simCounter
 Description
 +++++++++++
 
- This function counts the number of simulations by monitoring and counting the number of a specified file or directory. This should either be a ``*.lck`` file or a ``*.simdir`` directory. If the number is greater than the specified maximum number in the ``NumberOfModels`` inputs then the script will pause, in other way enter a while loop until the number of monitored files falls below ``NumberOfModels``.
+This function counts the number of simulations by monitoring and counting the number of a specified file or directory. This should either be a ``*.lck`` file or a ``*.simdir`` directory. If the number is greater than the specified maximum number in the ``NumberOfModels`` inputs then the script will pause, in other way enter a while loop until the number of monitored files falls below ``NumberOfModels``.
     
 **NumberOfModels:** This is a numeric input and must be an integer.
 
