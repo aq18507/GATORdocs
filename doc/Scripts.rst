@@ -292,3 +292,21 @@ Syntax
 .. code-block:: matlab
 
     simCounter(NumberOfModels,"FileToMonitor");
+
+
+
+licensePause
+------------
+
+Description
++++++++++++
+
+This script pauses the simulation if the maximum of **8** licenses is used on the license server. This script has no input and no output. It relies on the ``licenseCounter.mlx`` script to count the actual license
+
+
+Syntax
+++++++
+
+.. code-block:: matlab
+
+    licensePause();
