@@ -310,3 +310,23 @@ Syntax
 .. code-block:: matlab
 
     licensePause();
+
+
+
+
+resultDir
+---------
+
+Description
++++++++++++
+
+The ``resultDir`` script creates the directories win which the result data is going to be saved into. It does not need an input variable as it scans the directory in which it is executed for directories starting with the name *Results*. It will assign a new and unique Result directory name. 
+
+**DirName:** Is a string containing the new directories name.
+
+Syntax
+++++++
+
+.. code-block:: matlab
+
+    DirName = resultDir();
