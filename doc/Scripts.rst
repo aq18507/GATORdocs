@@ -324,7 +324,7 @@ The ``resultDir`` script creates the directories in which the result data is goi
 
 **DirName:** Is a string containing the new directories name.
 
-Syntax
+Syntaxblo
 ++++++
 
 .. code-block:: matlab
