@@ -339,4 +339,4 @@ Syntax
 
 .. code-block:: matlab
 
-    [DirName,odbName,inpName,cadName,msgName,datName] = resultDir(DirName);
+    ["DirName","odbName","inpName","cadName","msgName","datName"] = resultDir("DirName");
