@@ -320,13 +320,23 @@ resultDir
 Description
 +++++++++++
 
-The ``resultDir`` script creates the directories in which the result data is going to be saved into. It does not need an input variable as it scans the directory in which it is executed for directories starting with the name *Results*. It will assign a new and unique Result directory name. 
+The ``resultDir`` script creates the directories in which the result data is going to be saved into. It does not need an input variable as it scans the directory in which it is executed for directories starting with the name *Results*. It will assign a new and unique Result directory name. It has an additional input which is in a string format which can be used if a directory is already defined to extract the paths for the ``OBD``, ``INP``, ``CAD``, ``MSG`` and ``DAT`` subdirectories. Note that this will **not** create new directories
 
-**DirName:** Is a string containing the new directories name.
+**DirName:** Is a string containing the new directories or already defined directory name.
 
-Syntaxblo
+**odbName:** Path to the ``OBD`` subdirectory. 
+
+**inpName:** Path to the ``INP`` subdirectory. 
+
+**cadName:** Path to the ``CAD`` subdirectory. 
+
+**msgName:** Path to the ``MSG`` subdirectory.
+
+**datName:** Path to the ``DAT`` subdirectory.  
+
+Syntax
 ++++++
 
 .. code-block:: matlab
 
-    DirName = resultDir();
+    [DirName,odbName,inpName,cadName,msgName,datName] = resultDir(DirName);
