@@ -349,7 +349,7 @@ rcloneUpload
 Description
 +++++++++++
 
-This script creates a ``.bat`` file with the name ``rcloneUpload.bat``. This file will be created into the directory in which the ``rcloneUpload.mlx`` file is executed in. This file requires ``RCLONE`` to be installed and properly indexed. Furthermore, changes to the file may need to be made to account for different absolute locations in both the local and remote destinations. This script has no input or output.
+This script creates a ``.bat`` file with the name ``rcloneUpload.bat``. This file will be created into the directory in which the ``rcloneUpload.mlx`` file is executed from. This file requires ``RCLONE`` to be installed and properly indexed. Furthermore, changes to the file may need to be made to account for different absolute locations in both the local and remote destinations. This script has no input or output.
 
 .. warning::
     The ``rcloneUpload.bat`` should **never** copied into a different directory as it contains the path to the directory in which it was generated in. 
