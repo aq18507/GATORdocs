@@ -397,7 +397,7 @@ NodeExtract
   Input.Set_[n].Type = "[Node NodeExtract]";
 
 
-**Range:** Defines the physical range in the defined part below, from which the nodes are extracted. This essentially draws a cuboid around the described area and will then extract all nodes within this box. This must be in the format of a :math:`1 \times 6` numeric format, where the values are assigned as follows ``[xmin ymin zmin xmax ymax zmax]``.
+**Range:** Defines the physical range in the defined part below, from which the nodes are extracted. This essentially draws a cuboid around the described area and will then extract all nodes within this box. This must be in the format of a :math:`1 \times 6` numeric format, where the values are assigned as follows ``[xmin ymin zmin xmax ymax zmax]``. It might be worth adding a tolerance to the value defined in the vector. While the ``NodeExtract`` function has this option, this does not work in this context.
 
 .. code-block:: matlab
 	
