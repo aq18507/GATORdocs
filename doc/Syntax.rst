@@ -376,6 +376,53 @@ These are the other parameters that are required if the ``ogden`` model was chos
 Sets
 ----
 
+- NodeExtract
+
+The list above names all different methods to extract or assign nodes to a Set.
+
+NodeExtract
++++++++++++
+
+**Name:** This is the name that will be shown in the ABAQUS .inp file
+
+.. code-block:: matlab
+
+	Input.Set_[n].Name = "[Name]";
+
+
+**Type:** This defines the type. This must be in a :math:`1 \times 2` string array format.The first term defines what values are extracted, and the second term defines the method. In this case, it calls the script ``NodeExtract``
+
+.. code-block:: matlab
+	
+  Input.Set_[n].Type = "[Node NodeExtract]";
+
+
+**Range:** Defines the physical range in the defined part below, from which the nodes are extracted. This essentially draws a cuboid around the described area and will then extract all nodes within this box. This must be in the format of a :math:`1 \times 6` numeric format, where the values are assigned as follows ``[xmin ymin zmin xmax ymax zmax]``.
+
+.. code-block:: matlab
+	
+  Input.Set_[n].Range = [xmin ymin zmin xmax ymax zmax];
+
+
+**Part:** The part term defines the part to which the nodes belong. This value must be a positive integer and refer to a predefined part.
+
+.. code-block:: matlab
+	
+  Input.Set_[n].Part = PartNumber;
+
+
+.. code-block:: matlab
+  :caption: Example for a NodeExtract Set
+
+  % Name
+  Input.Set_1.Name = 'BM-symmetry-plane-2';
+  % Type
+  Input.Set_1.Type = ["Node" "NodeExtract"];
+  % Range [xmin ymin zmin xmax ymax zmax]
+  Input.Set_1.Range = [0 OffsetC+hc-tol 0-tol 0 ymax+tol z];
+  % Part Number
+  Input.Set_1.Part = 1;
+
 .. -------------------------------------------------------------------------------------------------------------------------------
 Loads
 -----
