@@ -360,3 +360,22 @@ Syntax
 .. code-block:: matlab
 
     rcloneUpload();
+
+
+
+
+
+dirIndex
+--------
+
+Description
++++++++++++
+
+This script contains all directories which need to be indexed in the ``preamble``. It requires the preamble to index the ``scripts`` directory as this is located in this directory. The Input for this script is the GATORcell root directory level which is determined by the preamble. 
+
+Syntax
+++++++
+
+.. code-block:: matlab
+
+    dirIndex(finalLevel);
