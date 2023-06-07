@@ -535,6 +535,21 @@ Optional Syntax
   Input.Step_[n].Load = [LoadNo];
 
 
+**Load.Unload:** Related to the previous command, the ``Load.Unload`` command can be used if the load is not required in the next step. It will automatically add a ``op=NEW`` flag to the load. Note that this command does not work in the first step, i.e. this can only be applied to ``Step_2`` or greater (if applied to ``Step_1`` it will simply be ignored). Like in the previous step the load needs to be specified as a positive integer and in the following format :math:`1 \times n`.
+
+.. code-block:: matlab
+
+  Input.Step_[n].Load.Unload = [LoadNo];
+
+
+**OP:** The ``OP`` command can be used to delete or modify BCs from the previous step. Either the ``OP`` or ``NEW`` flags can be used depending on the operation. (See `ABAQUS Boundary Condition Documentation <https://docs.software.vt.edu/abaqusv2022/English/SIMACAEKEYRefMap/simakey-r-boundary.htm>`_ for the exact usage of the flags). This must be added in addition to the ``BC`` option. If there are more than one BCs then the number of flags in the ``OP`` array must match the number of elements in the ``BC`` array. If all the flags are the same, then only one flag needs to be defined. Since this is altering a previous ``BC`` it can only be used on ``Step_1`` or higher. If this is defined in the first step, then it will simply be ignored. The values need to be in a string format :math:`1 \times n`.
+
+.. code-block:: matlab
+  
+  % for one BC or if all are equal
+  Input.Step_[n].OP = ["Flag"];
+  % or if flags are different for each BC
+  Input.Step_[n].OP = ["Flag1" "Flag2" "Flag3" "Flag4"];
 
 
 .. code-block:: matlab
