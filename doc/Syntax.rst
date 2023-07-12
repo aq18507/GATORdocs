@@ -452,7 +452,7 @@ Elements/All
 
 
 .. code-block:: matlab
-  :caption: Example for a NodeExtract Set
+  :caption: Example for a Elements/All Set
 
   % Name
   Input.Set_1.Name = 'BM-symmetry-plane-2';
