@@ -377,6 +377,7 @@ Sets
 ----
 
 - NodeExtract
+- Elements/All
 
 The list above names all different methods to extract or assign nodes to a Set.
 
@@ -420,6 +421,43 @@ NodeExtract
   Input.Set_1.Type = ["Node" "NodeExtract"];
   % Range [xmin ymin zmin xmax ymax zmax]
   Input.Set_1.Range = [0 OffsetC+hc-tol 0-tol 0 ymax+tol z];
+  % Part Number
+  Input.Set_1.Part = 1;
+
+
+
+
+Elements/All
++++++++++++
+
+**Name:** This is the name that will be shown in the ABAQUS .inp file
+
+.. code-block:: matlab
+
+	Input.Set_[n].Name = "[Name]";
+
+
+**Type:** This defines the type. This must be in a :math:`1 \times 3` string array format. The first term defines what values are extracted, in this case **Elements**, and the second term defines the method of extracting all elements, and the final term defines the element type which is to be extracted as there might be more than one.
+
+.. code-block:: matlab
+	
+  Input.Set_[n].Type = "[Node All ElementType]";
+
+
+**Part:** The part term defines the part to which the nodes belong. This value must be a positive integer and refer to a predefined part.
+
+.. code-block:: matlab
+	
+  Input.Set_[n].Part = PartNumber;
+
+
+.. code-block:: matlab
+  :caption: Example for a NodeExtract Set
+
+  % Name
+  Input.Set_1.Name = 'BM-symmetry-plane-2';
+  % Type
+  Input.Set_1.Type = ["Elements" "All" "S3"];
   % Part Number
   Input.Set_1.Part = 1;
 

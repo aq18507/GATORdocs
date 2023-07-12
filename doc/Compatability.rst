@@ -17,9 +17,9 @@ The latest GATORcell version relies on the following scripts and versions:
 +-------------------+---------------+---------------------------+
 | Matlab2Abaqus     |   1           | ``Matlab2Abaqus.mlx``     |
 +-------------------+---------------+---------------------------+
-| runAbaqus         |   4           | ``runAbaqus4.mlx``        |
+| runAbaqus         |   5           | ``runAbaqus5.mlx``        |
 +-------------------+---------------+---------------------------+
-| unitcell          |   7           | ``unitcell7.geo``         |
+| unitcell          |   7a          | ``unitcell7a.geo``        |
 +-------------------+---------------+---------------------------+
 
 GATORcell relies on a number of scripts that are compatible with each other. The version of each script is structured as ``v.[MainVersion].[Subversion]``. The compatibility only ever refers to the main version. since there might be models that are created on older versions it was decided to create new scripts/function names by specifying the version in their name with the following convention: ``[ScriptName][Version].mlx`` noting that version ``1`` is shown as ``[ScriptName].mlx``. The same applies to the GMSH shape files with the ``.geo`` suffix.
@@ -45,6 +45,25 @@ Compatability Archive
 ---------------------
 
 This section lists all older versions. This is for reference only.
+
+GATORcell Version: v.6.2023.6.7
++++++++++++++++++++++++++++++++++
+
++---------------------------------------------------------------+
+| GATORcell Version: |ProjectVersion|                           |
++-------------------+---------------+---------------------------+
+| Script            | Major Version | Script Name               |
++===================+===============+===========================+
+| makeModel         |   4           | ``makeModel4.mlx``        |
++-------------------+---------------+---------------------------+
+| InputCondtioner   |   6           | ``InputCondtioner6.mlx``  |
++-------------------+---------------+---------------------------+
+| Matlab2Abaqus     |   1           | ``Matlab2Abaqus.mlx``     |
++-------------------+---------------+---------------------------+
+| runAbaqus         |   4           | ``runAbaqus4.mlx``        |
++-------------------+---------------+---------------------------+
+| unitcell          |   7           | ``unitcell7.geo``         |
++-------------------+---------------+---------------------------+
 
 GATORcell Version: v.6.220609
 +++++++++++++++++++++++++++++
