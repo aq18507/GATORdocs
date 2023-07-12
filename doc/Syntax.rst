@@ -391,7 +391,7 @@ NodeExtract
 	Input.Set_[n].Name = "[Name]";
 
 
-**Type:** This defines the type. This must be in a :math:`1 \times 2` string array format.The first term defines what values are extracted, and the second term defines the method. In this case, it calls the script ``NodeExtract``
+**Type:** This defines the type. This must be in a :math:`1 \times 2` string array format. The first term defines what values are extracted, and the second term defines the method. In this case, it calls the script ``NodeExtract``
 
 .. code-block:: matlab
 	
