@@ -377,6 +377,7 @@ Sets
 ----
 
 - NodeExtract
+- Node/All
 - Elements/All
 
 The list above names all different methods to extract or assign nodes to a Set.
@@ -425,6 +426,41 @@ NodeExtract
   Input.Set_1.Part = 1;
 
 
+Node/All
++++++++++++
+
+**Name:** This is the name that will be shown in the ABAQUS .inp file
+
+.. code-block:: matlab
+
+	Input.Set_[n].Name = "[Name]";
+
+
+**Type:** This defines the type. This must be in a :math:`1 \times 2` string array format. The first term defines what values are extracted, in this case **Node**, and the second term defines the method of extracting all nodes. This function will automatically assign all nodes including inactive ones.
+
+.. code-block:: matlab
+	
+  Input.Set_[n].Type = "[Node All]";
+
+
+**Part:** The part term defines the part to which the nodes belong. This value must be a positive integer and refer to a predefined part.
+
+.. code-block:: matlab
+	
+  Input.Set_[n].Part = PartNumber;
+
+
+.. code-block:: matlab
+  :caption: Example for a Node/All Set
+
+  % Name
+  Input.Set_1.Name = 'BM-symmetry-plane-2';
+  % Type
+  Input.Set_1.Type = ["Node" "All"];
+  % Part Number
+  Input.Set_1.Part = 1;
+
+
 
 
 Elements/All
@@ -441,7 +477,7 @@ Elements/All
 
 .. code-block:: matlab
 	
-  Input.Set_[n].Type = "[Node All ElementType]";
+  Input.Set_[n].Type = "[Elements All ElementType]";
 
 
 **Part:** The part term defines the part to which the nodes belong. This value must be a positive integer and refer to a predefined part.
