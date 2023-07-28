@@ -376,11 +376,59 @@ These are the other parameters that are required if the ``ogden`` model was chos
 Sets
 ----
 
+- Node
 - NodeExtract
 - Node/All
 - Elements/All
 
 The list above names all different methods to extract or assign nodes to a Set.
+
+Node
++++++
+
+**Name:** This is the name that will be shown in the ABAQUS .inp file
+
+.. code-block:: matlab
+
+	Input.Set_[n].Name = "[Name]";
+
+
+**Type:** This defines the type. This must be in a :math:`1 \times 1` string array format. It defines that the nodes can be manually defined. This however does not mean that pre-defined nodes cannot be used. All nodes from the **Nodes** tab will be used without running internal checks. This option can be used for instance when calling up a predefined range of nodes.
+
+.. code-block:: matlab
+	
+  Input.Set_[n].Type = "[Node]";
+
+
+**Nodes:** This defines the type. This must be in a :math:`1 \times n` call array format. This defines all nodes all nodes of a part.
+
+.. code-block:: matlab
+	
+  Input.Set_[n].Nodes = [Nodes];
+
+
+**Part:** The part term defines the part to which the nodes belong. This value must be a positive integer and refer to a predefined part.
+
+.. code-block:: matlab
+	
+  Input.Set_[n].Part = PartNumber;
+
+
+.. code-block:: matlab
+  :caption: Example for a Node/All Set
+
+  % Name
+  Input.Set_1.Name = 'BM-symmetry-plane-2';
+  % Type
+  Input.Set_1.Type = "Node";
+  % Node  
+  Input.Set_1.Nodes = Input.Mesh.NSET.CoreInterface0;
+  % Part Number
+  Input.Set_1.Part = 1;
+
+
+
+
 
 NodeExtract
 +++++++++++
