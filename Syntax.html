@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Syntax &mdash; GATORcell Documentation beta:6.2023.7.31 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/GATOR_logo_v2.png"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Shape File" href="ShapeFile.html" />
+    <link rel="prev" title="Compatibility" href="Compatability.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/GATOR_logo_v1.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                beta:6.2023.7.31
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Working_Principle.html">Working principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Compatability.html">Compatibility</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Syntax</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#parts">Parts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#global-syntax">Global syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#optional-global-syntax">Optional global Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#d-parts">3D Parts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">2D Parts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#boundary-conditions">Boundary Conditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#surfaces">Surfaces</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Global Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#d-surfaces">3D Surfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">2D Surfaces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#materials">Materials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Global syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linear-elastic-materials">Linear elastic Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hyperelastic-materials">Hyperelastic Materials</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mooney-rivlin">Mooney-Rivlin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#polynomial">Polynomial</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ogden">Ogden</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sets">Sets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#node">Node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nodeextract">NodeExtract</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#node-all">Node/All</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#elements-all">Elements/All</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#loads">Loads</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pressure">Pressure</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#initial">Initial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#steps">Steps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Global Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#optional-syntax">Optional Syntax</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ShapeFile.html">Shape File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Scripts.html">Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Depreciated_Scripts.html">Depreciated Scripts</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GATORcell Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Syntax</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Syntax.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="syntax">
+<h1>Syntax<a class="headerlink" href="#syntax" title="Permalink to this heading"></a></h1>
+<p>The syntax described in this section describes how a Matlab script has to be structured for it to translate into an ABAQUS input file. This only ever refers to the latest version of GATORcell.</p>
+<p>Generally, there is no prescribed order of how the syntax is structured in the Matlab file unless specified explicitly in this documentation.</p>
+<p>The syntax described in this set of documenattion always referrs to the latest version of the files described on this page. <strong>Add reference to page</strong></p>
+<section id="parts">
+<h2>Parts<a class="headerlink" href="#parts" title="Permalink to this heading"></a></h2>
+<p>There can be 2D and 3D parts defined within GATORcell. They refer to the individual parts generated in GMSH, which is done using PartID’s. The general form is that the <em>Core</em> has the PartID <code class="docutils literal notranslate"><span class="pre">Core</span></code>, <em>Skin_1</em> = <code class="docutils literal notranslate"><span class="pre">Skin0</span></code> and the <em>Skin_2</em> = <code class="docutils literal notranslate"><span class="pre">Skin1</span></code>.  GMSH numbers from the bottom-up, which means that <code class="docutils literal notranslate"><span class="pre">Skin0</span></code> is the one closer to the datum plane and <code class="docutils literal notranslate"><span class="pre">Skin1</span></code> furthest away from the datum plane. The total number of parts must be defined within the struct with the following syntax. The number must be an integer equal to the number of parts, which may be greater than just the core and the two skins.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">NumberOfParts</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">NumberOfParts</span><span class="p">];</span>
+</pre></div>
+</div>
+<section id="global-syntax">
+<h3>Global syntax<a class="headerlink" href="#global-syntax" title="Permalink to this heading"></a></h3>
+<p>The global settings apply for both the <strong>3D</strong> and <strong>2D</strong> options.</p>
+<p><strong>Name:</strong> This is the name that will be shown in the ABAQUS .inp file</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Part_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;[Name]&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>PartID:</strong> The part ID is the identification name assigned by GMSH. For the Core it simply is <code class="docutils literal notranslate"><span class="pre">Core</span></code>. The Part ID can be found in the struct under <code class="docutils literal notranslate"><span class="pre">Input.Mesh</span></code>. In all listings, there are part IDs available. This must be in a string format.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Part_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">PartID</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;[PartID]&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>Material:</strong> This associates the material type to the part. Refer to the material definition section for how to define the material [Link to the Materials section](##Materials). The input format is a <span class="math notranslate nohighlight">\(1 \times 1`\)</span> numeric and must refer to an existing material number.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Part_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Material</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">MaterialNumber</span><span class="p">];</span>
+</pre></div>
+</div>
+</section>
+<section id="optional-global-syntax">
+<h3>Optional global Syntax<a class="headerlink" href="#optional-global-syntax" title="Permalink to this heading"></a></h3>
+<p>There are some optional commands that can be used globally.</p>
+<p><strong>NewElementType:</strong> This commad does nothing else than replace the element type. It has to be noted that in order for it to work it has to be a compatible element but with a different name. They have to be the same amount of nodes with the same numbering convention.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Part_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">NewElementType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;[NewElementType]&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="d-parts">
+<h3>3D Parts<a class="headerlink" href="#d-parts" title="Permalink to this heading"></a></h3>
+<p><strong>ElementType:</strong> The element type should match the main 3D element type listed in the partID. There can be multiple element types within the same partID. GATORcell has only ever been tested with <code class="docutils literal notranslate"><span class="pre">C3D10</span></code> elements. This does not mean that it would not work with any other elements.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Part_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">ElementType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;C3D10&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">Example of a 3D part definition</span><a class="headerlink" href="#id7" title="Permalink to this code"></a></div>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Part name</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Part_1</span><span class="p">.</span><span class="n">Name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;UnitCell&quot;</span><span class="p">;</span>
+<span class="c">% Part ID</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Part_1</span><span class="p">.</span><span class="n">PartID</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Core&quot;</span><span class="p">;</span>
+<span class="c">% Element Type</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Part_1</span><span class="p">.</span><span class="n">ElementType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;C3D10&quot;</span><span class="p">;</span>
+<span class="c">% Material</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Part_1</span><span class="p">.</span><span class="n">Material</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h3>2D Parts<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<p><strong>ElementType:</strong> The element type should match the main 2D element type listed in the partID. There can be multiple element types within the same partID. GATORcell has only ever been tested with <code class="docutils literal notranslate"><span class="pre">CPS6</span></code> elements and is likely not working with any other elements, unless the <code class="docutils literal notranslate"><span class="pre">InputConditionerX.mlx</span></code> is reprogrammed to handle the desired element type.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Part_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">ElementType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;CPS6&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>LowerOrderElement:</strong> The lower element order simply prints the element type into the <code class="docutils literal notranslate"><span class="pre">.inp</span></code> file. This means that the translated element must be compatible with the <strong>ElementType</strong> specified above. This statement initiates the actual conversion from the <strong>ElementType</strong> in the partID to the lower order element. The element tried as part of this work is <code class="docutils literal notranslate"><span class="pre">S3</span></code>.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Part_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">LowerOrderElement</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;[LowerOrderElement]&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>Thickness:</strong> This defines the skin thickness. This must be a numeric value of dimension <span class="math notranslate nohighlight">\(1 \times 1\)</span>.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Part_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Thickness</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">Thickness</span><span class="p">];</span>
+</pre></div>
+</div>
+<p><strong>IntegrationPoints:</strong> This defines the ABAQUS number of integration points <a class="reference external" href="https://classes.engineering.wustl.edu/2009/spring/mase5513/abaqus/docs/v6.6/books/gsa/default.htm?startat=ch04s01.html">ABAQUS Documentation Integration</a>. This must be a numeric value of dimension <span class="math notranslate nohighlight">\(1 \times 1\)</span>.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Part_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">IntegrationPoints</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">IntegrationPoints</span><span class="p">];</span>
+</pre></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">Example of a 2D part definition</span><a class="headerlink" href="#id8" title="Permalink to this code"></a></div>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Part name</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Part_2</span><span class="p">.</span><span class="n">Name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Skin-1&quot;</span><span class="p">;</span>
+<span class="c">% Part ID</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Part_2</span><span class="p">.</span><span class="n">PartID</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Skin0&quot;</span><span class="p">;</span>
+<span class="c">% Element Type</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Part_2</span><span class="p">.</span><span class="n">ElementType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;CPS6&quot;</span><span class="p">;</span>
+<span class="c">% Lower order Element</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Part_2</span><span class="p">.</span><span class="n">LowerOrderElement</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;S3&quot;</span><span class="p">;</span>
+<span class="c">% Material</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Part_2</span><span class="p">.</span><span class="n">Material</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="c">% Membrane Thickness</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Part_2</span><span class="p">.</span><span class="n">Thickness</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span>
+<span class="c">% Thickness Integration Points</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Part_2</span><span class="p">.</span><span class="n">IntegrationPoints</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="boundary-conditions">
+<h2>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this heading"></a></h2>
+</section>
+<section id="surfaces">
+<h2>Surfaces<a class="headerlink" href="#surfaces" title="Permalink to this heading"></a></h2>
+<p>This section describes howsurfaces cane be defined. They can be defined both in <strong>2D</strong> and <strong>3D</strong> models but the syntax in GATORcell differs. Note Surfaces by defaut are alyays 2D, which initiatest an issue for Shells and Membranes. However, a 3D surfce is more complicated to define as the orientation of the 3D element matters. This is why they are sepperated here.</p>
+<section id="id2">
+<h3>Global Syntax<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<p>The global settings apply for both the <strong>3D</strong> and <strong>2D</strong> parts.</p>
+<p><strong>Name:</strong> This is the name that will be shown in the ABAQUS .inp file.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Surface_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;[Name]&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>Type:</strong> This field instructs the <code class="docutils literal notranslate"><span class="pre">InputCondtioner</span></code> where to get the data from. This is structured as follows:</p>
+<ul class="simple">
+<li><p>SurfaceDefinition → <code class="docutils literal notranslate"><span class="pre">ELEMENT</span></code></p>
+<ul>
+<li><p>Dimension → <code class="docutils literal notranslate"><span class="pre">3D</span></code></p></li>
+<li><p>Dimension → <code class="docutils literal notranslate"><span class="pre">2D</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p>The term <code class="docutils literal notranslate"><span class="pre">ELEMENT</span></code> stands for that the surface is defined using Elements and the term <code class="docutils literal notranslate"><span class="pre">2D</span></code> and <code class="docutils literal notranslate"><span class="pre">3D</span></code> specify whether the source part is in either 2D or 3D. The sytax is as follows</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Surface_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Type</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;[SurfaceDefinition]&quot;</span><span class="w"> </span><span class="s">&quot;[Dimension]&quot;</span><span class="p">];</span>
+</pre></div>
+</div>
+<p><strong>Part:</strong> Part number to which the surface is referring to. This has to be a numeric value and must be an integer.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Surface_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Part</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">PartNumber</span><span class="p">];</span>
+</pre></div>
+</div>
+<p><strong>Elements:</strong> This defines where to take the elements from. The surface handler in the <code class="docutils literal notranslate"><span class="pre">InputConditioner</span></code> function takes the mesh data directly from the mesh. The <strong>Elements</strong> statement referrs to which reference set to choose from within the mesh struct (<code class="docutils literal notranslate"><span class="pre">Input.Mesh</span></code>). The shape file returns the core/skin interaces automatically and stores them in the mesh file. The core interface are named <code class="docutils literal notranslate"><span class="pre">CoreInterface0</span></code> and <code class="docutils literal notranslate"><span class="pre">CoreInterface1</span></code>, where the <code class="docutils literal notranslate"><span class="pre">0</span></code> is referring to the skin closest to <code class="docutils literal notranslate"><span class="pre">z0</span></code> which is the datum in the <span class="math notranslate nohighlight">\(z\)</span>-direction and <code class="docutils literal notranslate"><span class="pre">1</span></code> furthest away. This does however not mean that this list is exclusive. If there are any other parts defined then they can be named using this as long as there is a reference in the mesh struct.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Surface_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Elements</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;[InterfaceDefinition]&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="d-surfaces">
+<h3>3D Surfaces<a class="headerlink" href="#d-surfaces" title="Permalink to this heading"></a></h3>
+<p><strong>ElementType:</strong> Since it the surface handler takes the data form the mesh surce directly the element type must be specified.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Surface_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">ElementType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;[ElementType]&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">Example of a 3D surface definition</span><a class="headerlink" href="#id9" title="Permalink to this code"></a></div>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Name</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Surface_1</span><span class="p">.</span><span class="n">Name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;Core-Surface-1&#39;</span><span class="p">;</span>
+<span class="c">% Type of element</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Surface_1</span><span class="p">.</span><span class="n">Type</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;ELEMENT&quot;</span><span class="w"> </span><span class="s">&quot;3D&quot;</span><span class="p">];</span>
+<span class="c">% Interface Elements</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Surface_1</span><span class="p">.</span><span class="n">Elements</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;CoreInterface0&quot;</span><span class="p">;</span>
+<span class="c">% Part Number</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Surface_1</span><span class="p">.</span><span class="n">Part</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="c">% Element Type in CoreInterface</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Surface_1</span><span class="p">.</span><span class="n">ElementType</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;CPS6&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="id3">
+<h3>2D Surfaces<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+<p><strong>(ElementType):</strong> This is an optional statement in 2D surfaces. If the <strong>ElementType</strong> is omitted then <em>ALL</em> elements are added to the struct. If this term is specifed then the above applies.</p>
+<p><strong>Orientation:</strong> The orientation defines which surface points in which direction. There are two choices:</p>
+<ul class="simple">
+<li><p>Positive = <code class="docutils literal notranslate"><span class="pre">SPOS</span></code></p></li>
+<li><p>Negative = <code class="docutils literal notranslate"><span class="pre">SNEG</span></code></p></li>
+</ul>
+<p>GMSH assignes the mesh such that <code class="docutils literal notranslate"><span class="pre">SPOS</span></code> always faces away from the <span class="math notranslate nohighlight">\(z\)</span>-axis and <code class="docutils literal notranslate"><span class="pre">SNEG</span></code> always points towards <span class="math notranslate nohighlight">\(z\)</span>.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Surface_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Orientation</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;[Orientation]&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">Example of a 2D surface definition</span><a class="headerlink" href="#id10" title="Permalink to this code"></a></div>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Name</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Surface_2</span><span class="p">.</span><span class="n">Name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;Membrane-Surface-2&#39;</span><span class="p">;</span>
+<span class="c">% Type</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Surface_2</span><span class="p">.</span><span class="n">Type</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;ELEMENT&quot;</span><span class="w"> </span><span class="s">&quot;2D&quot;</span><span class="p">];</span>
+<span class="c">% Interface Elements</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Surface_2</span><span class="p">.</span><span class="n">Elements</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;CoreInterface0&quot;</span><span class="p">;</span>
+<span class="c">% Orientation (SPOS = Positive/SNEG = Negative)</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Surface_2</span><span class="p">.</span><span class="n">Orientation</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;SNEG&#39;</span><span class="p">;</span>
+<span class="c">% Part Number</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Surface_2</span><span class="p">.</span><span class="n">Part</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="materials">
+<h2>Materials<a class="headerlink" href="#materials" title="Permalink to this heading"></a></h2>
+<p>This section describes how materials are defined. ABAQUS allows various material models to be included. A number of them are programmed into GATORcell. It can handle the following material models.</p>
+<ul class="simple">
+<li><p>Linear Elastic → <code class="docutils literal notranslate"><span class="pre">Elastic</span></code></p></li>
+<li><p>Hyperelastic → <code class="docutils literal notranslate"><span class="pre">Hyperelastic</span></code></p></li>
+</ul>
+<p>The total number of materials must be defined within the struct with the following syntax. The number must be an integer equal to the number of materials.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">NumberOfParts</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">NumberOfParts</span><span class="p">];</span>
+</pre></div>
+</div>
+<section id="id4">
+<h3>Global syntax<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
+<p>The global settings apply to all materials.</p>
+<p><strong>Name:</strong> This is the unique name that will be shown in the ABAQUS .inp file</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Material_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;[Name]&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>Behaviour:</strong> This sets the material model, which is either <code class="docutils literal notranslate"><span class="pre">Elastic</span></code> or <code class="docutils literal notranslate"><span class="pre">Hyperelastic</span></code>. It is important to note that the first letter is capitalised.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Material_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Behaviour</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;[MaterialModel]&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="linear-elastic-materials">
+<h3>Linear elastic Materials<a class="headerlink" href="#linear-elastic-materials" title="Permalink to this heading"></a></h3>
+<p><strong>E:</strong> This setting defines the Young’s modulus. It must be a numeric value of dimension <span class="math notranslate nohighlight">\(1 \times 1\)</span>.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Material_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">E</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">E</span><span class="p">];</span>
+</pre></div>
+</div>
+<p><strong>nu:</strong> This defines the Poisson’s ratio <span class="math notranslate nohighlight">\(\nu\)</span> of the material. It must be a numeric value of dimension <span class="math notranslate nohighlight">\(1 \times 1\)</span>.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Material_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">nu</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">nu</span><span class="p">];</span>
+</pre></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">Example for a Linear Elastic Material</span><a class="headerlink" href="#id11" title="Permalink to this code"></a></div>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Material Name</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Material_2</span><span class="p">.</span><span class="n">Name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;Ninjaflex&#39;</span><span class="p">;</span>
+<span class="c">% Material behaviour</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Material_2</span><span class="p">.</span><span class="n">Behaviour</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;Elastic&#39;</span><span class="p">;</span>
+<span class="c">% Youngs Modulus</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Material_2</span><span class="p">.</span><span class="n">E</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">22.9</span><span class="p">;</span>
+<span class="c">% Poisson&#39;s Ratio</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Material_2</span><span class="p">.</span><span class="n">nu</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.43</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="hyperelastic-materials">
+<h3>Hyperelastic Materials<a class="headerlink" href="#hyperelastic-materials" title="Permalink to this heading"></a></h3>
+<p>This function can handle three different material models, <code class="docutils literal notranslate"><span class="pre">mooney-rivlin</span></code>,  <code class="docutils literal notranslate"><span class="pre">polynomial</span></code> which in fact is a higher-order Mooney-Rivlin model and the <code class="docutils literal notranslate"><span class="pre">ogden</span></code> model. Since they are defined all somewhat differently they shall be described individually here.</p>
+<p><strong>Model:</strong> The model can be defined with the following command using the appropriate model description.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mooney-rivlin</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">polynomial</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ogden</span></code></p></li>
+</ul>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Material_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Model</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;[Model]&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<section id="mooney-rivlin">
+<h4>Mooney-Rivlin<a class="headerlink" href="#mooney-rivlin" title="Permalink to this heading"></a></h4>
+<p>This is the other parameter that is required if the <code class="docutils literal notranslate"><span class="pre">mooney-rivlin</span></code> model was chosen</p>
+<p><strong>Constants:</strong> This defines the elastic Mooney-Rivlin constants in the format <span class="math notranslate nohighlight">\(C10, C01, D1\)</span>. Important is that the sequence is exactly how it is shown here. It has to be in a numeric format of dimension <span class="math notranslate nohighlight">\(3 \times 1\)</span>.</p>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">Example for a Hyperelastic Mooney-Rivlin model</span><a class="headerlink" href="#id12" title="Permalink to this code"></a></div>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Material Name</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Material_2</span><span class="p">.</span><span class="n">Name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;Ninjaflex&#39;</span><span class="p">;</span>
+<span class="c">% Material behaviour</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Material_2</span><span class="p">.</span><span class="n">Behaviour</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;Hyperelastic&#39;</span><span class="p">;</span>
+<span class="c">% Material Model</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Material_2</span><span class="p">.</span><span class="n">Model</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;mooney-rivlin&#39;</span><span class="p">;</span>
+<span class="c">% Constants [C10, C01, D1]</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Material_2</span><span class="p">.</span><span class="n">Constants</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0.5034</span><span class="w"> </span><span class="mf">3.1410</span><span class="w"> </span><span class="mi">0</span><span class="p">];</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="polynomial">
+<h4>Polynomial<a class="headerlink" href="#polynomial" title="Permalink to this heading"></a></h4>
+<p>These are the other parameters that are required if the <code class="docutils literal notranslate"><span class="pre">polynomial</span></code> model was chosen</p>
+<p><strong>Order:</strong> This setting defines the order. Important to note here is that it can be in any order, however, the <strong>Constants</strong> which is defined below must be in the same order as the ABAQUS definition. For further information please consult the ABAQUS documentation <a class="reference external" href="https://classes.engineering.wustl.edu/2009/spring/mase5513/abaqus/docs/v6.6/books/usb/default.htm?startat=pt05ch17s05abm07.html#usb-mat-chyperelastic">ABAQUS Hyperelastic material guide</a>. The input must be an integer.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Material_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Order</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">Order</span><span class="p">];</span>
+</pre></div>
+</div>
+<p><strong>Constants:</strong> The constants are numeric values that define the material’s behavior. It must be in the correct format match in the <strong>Order</strong> defined above, which is for a <cite>2</cite><sup>nd</sup> order polynomial the following <span class="math notranslate nohighlight">\(C10, C01, C20, C11, C02, D1, D2\)</span>. The input format is numeric and of the size <span class="math notranslate nohighlight">\(x \times 1\)</span> where <span class="math notranslate nohighlight">\(x\)</span> is the number of constants.</p>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">Example for a Hyperelastic Polynomial model</span><a class="headerlink" href="#id13" title="Permalink to this code"></a></div>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Material Name</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Material_2</span><span class="p">.</span><span class="n">Name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;Ninjaflex&#39;</span><span class="p">;</span>
+<span class="c">% Material behaviour</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Material_2</span><span class="p">.</span><span class="n">Behaviour</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;Hyperelastic&#39;</span><span class="p">;</span>
+<span class="c">% Material Model</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Material_2</span><span class="p">.</span><span class="n">Model</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;polynomial&#39;</span><span class="p">;</span>
+<span class="c">% Ogden model order</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Material_2</span><span class="p">.</span><span class="n">Order</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="c">% Constants [C10 C01 C20 C11 C02 D1 D2]</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Material_2</span><span class="p">.</span><span class="n">Constants</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">4.50465</span><span class="w"> </span><span class="mf">9.002102</span><span class="w"> </span><span class="o">-</span><span class="mf">0.2079786</span><span class="w"> </span><span class="mf">0.9386004</span><span class="w"> </span><span class="mf">0.1804305</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">];</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="ogden">
+<h4>Ogden<a class="headerlink" href="#ogden" title="Permalink to this heading"></a></h4>
+<p>These are the other parameters that are required if the <code class="docutils literal notranslate"><span class="pre">ogden</span></code> model was chosen</p>
+<p><strong>Order:</strong> This setting defines the order. Important to note here is that it can be in any order, however, the <strong>Constants</strong> which is defined below must be in the same order as the ABAQUS definition. For further information please consult the ABAQUS documentation <a class="reference external" href="https://classes.engineering.wustl.edu/2009/spring/mase5513/abaqus/docs/v6.6/books/usb/default.htm?startat=pt05ch17s05abm07.html#usb-mat-chyperelastic">ABAQUS Hyperelastic material guide</a>. The input must be an integer.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Material_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Order</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">Order</span><span class="p">];</span>
+</pre></div>
+</div>
+<p><strong>Constants:</strong> The constants are numeric values that define the material’s behavior. It must be in the correct format match in the <strong>Order</strong> defined above, which is for a <cite>3</cite><sup>rd</sup> order polynomial the following <span class="math notranslate nohighlight">\(\mu1, \alpha1, \mu2, \alpha2, \mu3, \alpha3, D1, D2, D3\)</span>. The input format is numeric and of the size <span class="math notranslate nohighlight">\(x \times 1\)</span> where <span class="math notranslate nohighlight">\(x\)</span> is the number of constants.</p>
+<div class="literal-block-wrapper docutils container" id="id14">
+<div class="code-block-caption"><span class="caption-text">Example for a Hyperelastic Ogden model</span><a class="headerlink" href="#id14" title="Permalink to this code"></a></div>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Material Name</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Material_2</span><span class="p">.</span><span class="n">Name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;Ninjaflex&#39;</span><span class="p">;</span>
+<span class="c">% Material behaviour</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Material_2</span><span class="p">.</span><span class="n">Behaviour</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;Hyperelastic&#39;</span><span class="p">;</span>
+<span class="c">% Material Model</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Material_2</span><span class="p">.</span><span class="n">Model</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;ogden&#39;</span><span class="p">;</span>
+<span class="c">% Ogden model order</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Material_2</span><span class="p">.</span><span class="n">Order</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="c">% Constants [mu1 alpha1 mu2 alpha2 mu3 alpha3 D1 D2 D3]</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Material_2</span><span class="p">.</span><span class="n">Constants</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">142.70</span><span class="w"> </span><span class="mf">0.60</span><span class="w"> </span><span class="mf">54.15</span><span class="w"> </span><span class="mf">1.18</span><span class="w"> </span><span class="mf">96.39</span><span class="w"> </span><span class="o">-</span><span class="mf">7.46E-02</span><span class="w"> </span><span class="mf">1.03E-02</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">];</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="sets">
+<h2>Sets<a class="headerlink" href="#sets" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Node</p></li>
+<li><p>NodeExtract</p></li>
+<li><p>Node/All</p></li>
+<li><p>Elements/All</p></li>
+</ul>
+<p>The list above names all different methods to extract or assign nodes to a Set.</p>
+<section id="node">
+<h3>Node<a class="headerlink" href="#node" title="Permalink to this heading"></a></h3>
+<p><strong>Name:</strong> This is the name that will be shown in the ABAQUS .inp file</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Set_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;[Name]&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>Type:</strong> This defines the type. This must be in a <span class="math notranslate nohighlight">\(1 \times 1\)</span> string array format. It defines that the nodes can be manually defined. This however does not mean that pre-defined nodes cannot be used. All nodes from the <strong>Nodes</strong> tab will be used without running internal checks. This option can be used for instance when calling up a predefined range of nodes.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Set_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Type</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;[Node]&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>Nodes:</strong> This defines the type. This must be in a <span class="math notranslate nohighlight">\(1 \times n\)</span> call array format. This defines all nodes all nodes of a part.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Set_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Nodes</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">Nodes</span><span class="p">];</span>
+</pre></div>
+</div>
+<p><strong>Part:</strong> The part term defines the part to which the nodes belong. This value must be a positive integer and refer to a predefined part.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Set_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Part</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">PartNumber</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="code-block-caption"><span class="caption-text">Example for a Node/All Set</span><a class="headerlink" href="#id15" title="Permalink to this code"></a></div>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Name</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Set_1</span><span class="p">.</span><span class="n">Name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;BM-symmetry-plane-2&#39;</span><span class="p">;</span>
+<span class="c">% Type</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Set_1</span><span class="p">.</span><span class="n">Type</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Node&quot;</span><span class="p">;</span>
+<span class="c">% Node</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Set_1</span><span class="p">.</span><span class="n">Nodes</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Input</span><span class="p">.</span><span class="n">Mesh</span><span class="p">.</span><span class="n">NSET</span><span class="p">.</span><span class="n">CoreInterface0</span><span class="p">;</span>
+<span class="c">% Part Number</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Set_1</span><span class="p">.</span><span class="n">Part</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="nodeextract">
+<h3>NodeExtract<a class="headerlink" href="#nodeextract" title="Permalink to this heading"></a></h3>
+<p><strong>Name:</strong> This is the name that will be shown in the ABAQUS .inp file</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Set_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;[Name]&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>Type:</strong> This defines the type. This must be in a <span class="math notranslate nohighlight">\(1 \times 2\)</span> string array format. The first term defines what values are extracted, and the second term defines the method. In this case, it calls the script <code class="docutils literal notranslate"><span class="pre">NodeExtract</span></code></p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Set_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Type</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;[Node NodeExtract]&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>Range:</strong> Defines the physical range in the defined part below, from which the nodes are extracted. This essentially draws a cuboid around the described area and will then extract all nodes within this box. This must be in the format of a <span class="math notranslate nohighlight">\(1 \times 6\)</span> numeric format, where the values are assigned as follows <code class="docutils literal notranslate"><span class="pre">[xmin</span> <span class="pre">ymin</span> <span class="pre">zmin</span> <span class="pre">xmax</span> <span class="pre">ymax</span> <span class="pre">zmax]</span></code>. It might be worth adding a tolerance to the value defined in the vector. While the <code class="docutils literal notranslate"><span class="pre">NodeExtract</span></code> function has this option, this does not work in this context.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Set_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Range</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">xmin</span><span class="w"> </span><span class="n">ymin</span><span class="w"> </span><span class="n">zmin</span><span class="w"> </span><span class="n">xmax</span><span class="w"> </span><span class="n">ymax</span><span class="w"> </span><span class="n">zmax</span><span class="p">];</span>
+</pre></div>
+</div>
+<p><strong>Part:</strong> The part term defines the part to which the nodes belong. This value must be a positive integer and refer to a predefined part.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Set_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Part</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">PartNumber</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id16">
+<div class="code-block-caption"><span class="caption-text">Example for a NodeExtract Set</span><a class="headerlink" href="#id16" title="Permalink to this code"></a></div>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Name</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Set_1</span><span class="p">.</span><span class="n">Name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;BM-symmetry-plane-2&#39;</span><span class="p">;</span>
+<span class="c">% Type</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Set_1</span><span class="p">.</span><span class="n">Type</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;Node&quot;</span><span class="w"> </span><span class="s">&quot;NodeExtract&quot;</span><span class="p">];</span>
+<span class="c">% Range [xmin ymin zmin xmax ymax zmax]</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Set_1</span><span class="p">.</span><span class="n">Range</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="w"> </span><span class="n">OffsetC</span><span class="o">+</span><span class="n">hc</span><span class="o">-</span><span class="n">tol</span><span class="w"> </span><span class="mi">0</span><span class="o">-</span><span class="n">tol</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">ymax</span><span class="o">+</span><span class="n">tol</span><span class="w"> </span><span class="n">z</span><span class="p">];</span>
+<span class="c">% Part Number</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Set_1</span><span class="p">.</span><span class="n">Part</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="node-all">
+<h3>Node/All<a class="headerlink" href="#node-all" title="Permalink to this heading"></a></h3>
+<p><strong>Name:</strong> This is the name that will be shown in the ABAQUS .inp file</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Set_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;[Name]&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>Type:</strong> This defines the type. This must be in a <span class="math notranslate nohighlight">\(1 \times 2\)</span> string array format. The first term defines what values are extracted, in this case <strong>Node</strong>, and the second term defines the method of extracting all nodes. This function will automatically assign all nodes including inactive ones.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Set_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Type</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;[Node All]&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>Part:</strong> The part term defines the part to which the nodes belong. This value must be a positive integer and refer to a predefined part.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Set_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Part</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">PartNumber</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id17">
+<div class="code-block-caption"><span class="caption-text">Example for a Node/All Set</span><a class="headerlink" href="#id17" title="Permalink to this code"></a></div>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Name</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Set_1</span><span class="p">.</span><span class="n">Name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;BM-symmetry-plane-2&#39;</span><span class="p">;</span>
+<span class="c">% Type</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Set_1</span><span class="p">.</span><span class="n">Type</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;Node&quot;</span><span class="w"> </span><span class="s">&quot;All&quot;</span><span class="p">];</span>
+<span class="c">% Part Number</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Set_1</span><span class="p">.</span><span class="n">Part</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="elements-all">
+<h3>Elements/All<a class="headerlink" href="#elements-all" title="Permalink to this heading"></a></h3>
+<p><strong>Name:</strong> This is the name that will be shown in the ABAQUS .inp file</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Set_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;[Name]&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>Type:</strong> This defines the type. This must be in a <span class="math notranslate nohighlight">\(1 \times 3\)</span> string array format. The first term defines what values are extracted, in this case <strong>Elements</strong>, and the second term defines the method of extracting all elements, and the final term defines the element type which is to be extracted as there might be more than one.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Set_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Type</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;[Elements All ElementType]&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>Part:</strong> The part term defines the part to which the nodes belong. This value must be a positive integer and refer to a predefined part.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Set_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Part</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">PartNumber</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id18">
+<div class="code-block-caption"><span class="caption-text">Example for a Elements/All Set</span><a class="headerlink" href="#id18" title="Permalink to this code"></a></div>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Name</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Set_1</span><span class="p">.</span><span class="n">Name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;BM-symmetry-plane-2&#39;</span><span class="p">;</span>
+<span class="c">% Type</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Set_1</span><span class="p">.</span><span class="n">Type</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;Elements&quot;</span><span class="w"> </span><span class="s">&quot;All&quot;</span><span class="w"> </span><span class="s">&quot;S3&quot;</span><span class="p">];</span>
+<span class="c">% Part Number</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Set_1</span><span class="p">.</span><span class="n">Part</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="loads">
+<h2>Loads<a class="headerlink" href="#loads" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Pressure</p></li>
+</ul>
+<p>The list above signifies all the loads which are programmed into GATORcell. They have to be defined as follows in Matlab</p>
+<section id="pressure">
+<h3>Pressure<a class="headerlink" href="#pressure" title="Permalink to this heading"></a></h3>
+<p><strong>Name:</strong> This is the name that will be shown in the ABAQUS .inp file</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Load_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;[Name]&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>Type:</strong> This defines the type of load. In this case, it is Pressure which is defined in the first statement. The second statement defines which kind of pressure load.
+The following subset loads types are preprogrammed with the syntax:</p>
+<ul class="simple">
+<li><p>Surface Load  →  <code class="docutils literal notranslate"><span class="pre">SurfaceLoad</span></code></p></li>
+</ul>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Load_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Type</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;[Pressure]&quot;</span><span class="w"> </span><span class="s">&quot;[SubsetLoad]&quot;</span><span class="p">];</span>
+</pre></div>
+</div>
+<p><strong>Vector:</strong> The Load vector statement defined the load vector. Pressure loads can only be normal to the surface, and thus this vector must be of a size <span class="math notranslate nohighlight">\(1 \times 1\)</span>.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Load_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Vector</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">LoadVector</span><span class="p">];</span>
+</pre></div>
+</div>
+<p><strong>Surface:</strong> This defines to which surface this load or in this case pressure is associated to. The value is to be numeric in the form of <span class="math notranslate nohighlight">\(1 \times 1\)</span>.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Load_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Surface</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">SurfaceNumber</span><span class="p">];</span>
+</pre></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id19">
+<div class="code-block-caption"><span class="caption-text">Example for a Pressure Load</span><a class="headerlink" href="#id19" title="Permalink to this code"></a></div>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Name</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Load_1</span><span class="p">.</span><span class="n">Name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;Pressure-Load&#39;</span><span class="p">;</span>
+<span class="c">% Type</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Load_1</span><span class="p">.</span><span class="n">Type</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;Pressure&quot;</span><span class="w"> </span><span class="s">&quot;SurfaceLoad&quot;</span><span class="p">];</span>
+<span class="c">% Load Vector</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Load_1</span><span class="p">.</span><span class="n">Vector</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="mf">0.5</span><span class="p">;</span>
+<span class="c">% Surface</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Load_1</span><span class="p">.</span><span class="n">Surface</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="initial">
+<h2>Initial<a class="headerlink" href="#initial" title="Permalink to this heading"></a></h2>
+<p><strong>Initial:</strong>
+The initial Step signifies the initial condition or the initial step. So far only the <a class="reference internal" href="#boundary-conditions"><span class="std std-ref">Boundary Conditions</span></a> have been programmed. There is the possibility to program some other condition if needed.</p>
+<p><strong>BC:</strong> Defined the associated Boundary Condition. It has to be specified as a positive initeger and in the format <span class="math notranslate nohighlight">\(1 \times n\)</span>.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Initial</span><span class="p">.</span><span class="n">BC</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">BoundaryCondition</span><span class="p">];</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This definition is only needed once and will filther though all steps as it would when defining the initial conditions in ABAQUS. See ABAQUS manual for futrther information.</p>
+</div>
+</section>
+<section id="steps">
+<h2>Steps<a class="headerlink" href="#steps" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Static</p></li>
+</ul>
+<p>So far only the above mentioned Steps have been programmed.</p>
+<section id="id6">
+<h3>Global Syntax<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h3>
+<p><strong>Name:</strong> This is the name that will be shown in the ABAQUS .inp file</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Step_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;[Name]&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>Type:</strong> This denotes the step type. The abaliable Types are listed below.</p>
+<ul class="simple">
+<li><p>Static</p></li>
+</ul>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Step_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Type</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;[Type]&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>Period:</strong> This defines the step time as outlined here. As a standard it is set to <span class="math notranslate nohighlight">\(1\)</span> but it can be set to anything else as long as it complies with the ABAQUS syntax. This prints the time directly form the struct to the ABAQUS input file. for more information see <a class="reference external" href="https://classes.engineering.wustl.edu/2009/spring/mase5513/abaqus/docs/v6.6/books/gsa/default.htm?startat=ch11s01.html">ABAQUS General analysis procedure</a>.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Step_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Period</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="optional-syntax">
+<h3>Optional Syntax<a class="headerlink" href="#optional-syntax" title="Permalink to this heading"></a></h3>
+<p><strong>Load:</strong> This donates the Loads associated with this step. The values need to be positive integers and in the following format <span class="math notranslate nohighlight">\(1 \times n\)</span>.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Step_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Load</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">LoadNo</span><span class="p">];</span>
+</pre></div>
+</div>
+<p><strong>Load.Unload:</strong> Related to the previous command, the <code class="docutils literal notranslate"><span class="pre">Load.Unload</span></code> command can be used if the load is not required in the next step. It will automatically add a <code class="docutils literal notranslate"><span class="pre">op=NEW</span></code> flag to the load. Note that this command does not work in the first step, i.e. this can only be applied to <code class="docutils literal notranslate"><span class="pre">Step_2</span></code> or greater (if applied to <code class="docutils literal notranslate"><span class="pre">Step_1</span></code> it will simply be ignored). Like in the previous step the load needs to be specified as a positive integer and in the following format <span class="math notranslate nohighlight">\(1 \times n\)</span>.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">.</span><span class="n">Step_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">Load</span><span class="p">.</span><span class="n">Unload</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">LoadNo</span><span class="p">];</span>
+</pre></div>
+</div>
+<p><strong>OP:</strong> The <code class="docutils literal notranslate"><span class="pre">OP</span></code> command can be used to delete or modify BCs from the previous step. Either the <code class="docutils literal notranslate"><span class="pre">OP</span></code> or <code class="docutils literal notranslate"><span class="pre">NEW</span></code> flags can be used depending on the operation. (See <a class="reference external" href="https://docs.software.vt.edu/abaqusv2022/English/SIMACAEKEYRefMap/simakey-r-boundary.htm">ABAQUS Boundary Condition Documentation</a> for the exact usage of the flags). This must be added in addition to the <code class="docutils literal notranslate"><span class="pre">BC</span></code> option. If there are more than one BCs then the number of flags in the <code class="docutils literal notranslate"><span class="pre">OP</span></code> array must match the number of elements in the <code class="docutils literal notranslate"><span class="pre">BC</span></code> array. If all the flags are the same, then only one flag needs to be defined. Since this is altering a previous <code class="docutils literal notranslate"><span class="pre">BC</span></code> it can only be used on <code class="docutils literal notranslate"><span class="pre">Step_1</span></code> or higher. If this is defined in the first step, then it will simply be ignored. The values need to be in a string format <span class="math notranslate nohighlight">\(1 \times n\)</span>.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% for one BC or if all are equal</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Step_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">OP</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;Flag&quot;</span><span class="p">];</span>
+<span class="c">% or if flags are different for each BC</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Step_</span><span class="p">[</span><span class="n">n</span><span class="p">].</span><span class="n">OP</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;Flag1&quot;</span><span class="w"> </span><span class="s">&quot;Flag2&quot;</span><span class="w"> </span><span class="s">&quot;Flag3&quot;</span><span class="w"> </span><span class="s">&quot;Flag4&quot;</span><span class="p">];</span>
+</pre></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id20">
+<div class="code-block-caption"><span class="caption-text">Example Step</span><a class="headerlink" href="#id20" title="Permalink to this code"></a></div>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Name</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Step_1</span><span class="p">.</span><span class="n">Name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;Pressure&#39;</span><span class="p">;</span>
+<span class="c">% Type</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Step_1</span><span class="p">.</span><span class="n">Type</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;Static&#39;</span><span class="p">;</span>
+<span class="c">% Load</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Step_1</span><span class="p">.</span><span class="n">Load</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="c">% Time Period</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Step_1</span><span class="p">.</span><span class="n">Period</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="c">% Increment Size [Initial,Miniumum,Maximum]</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Step_1</span><span class="p">.</span><span class="n">Increment</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1e-1</span><span class="w"> </span><span class="mf">1e-12</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+<span class="c">% NLGEOM</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Step_1</span><span class="p">.</span><span class="n">NLGEOM</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;YES&#39;</span><span class="p">;</span>
+<span class="c">% Associated Boundry Condition</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Step_1</span><span class="p">.</span><span class="n">BC</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="mi">8</span><span class="p">];</span>
+<span class="c">% Prompts history output (number denotes the number of histories)</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Step_1</span><span class="p">.</span><span class="n">H</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="c">% History Name</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Step_1</span><span class="p">.</span><span class="n">History_1</span><span class="p">.</span><span class="n">Node</span><span class="p">.</span><span class="n">Name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;RF&quot;</span><span class="p">;</span>
+<span class="c">% Output History. Define the number</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Step_1</span><span class="p">.</span><span class="n">History_1</span><span class="p">.</span><span class="n">Node</span><span class="p">.</span><span class="n">Set</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">set_no</span><span class="p">;</span>
+<span class="c">% Node output values</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Step_1</span><span class="p">.</span><span class="n">History_1</span><span class="p">.</span><span class="n">Node</span><span class="p">.</span><span class="n">Output</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;U3&quot;</span><span class="p">;</span>
+<span class="c">% Values to be printed</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Step_1</span><span class="p">.</span><span class="n">History_1</span><span class="p">.</span><span class="n">Node</span><span class="p">.</span><span class="n">Print</span><span class="p">.</span><span class="n">Output</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Input</span><span class="p">.</span><span class="n">Step_1</span><span class="p">.</span><span class="n">History_1</span><span class="p">.</span><span class="n">Node</span><span class="p">.</span><span class="n">Output</span><span class="p">;</span>
+<span class="c">% Print Set</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Step_1</span><span class="p">.</span><span class="n">History_1</span><span class="p">.</span><span class="n">Node</span><span class="p">.</span><span class="n">Print</span><span class="p">.</span><span class="n">Set</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Input</span><span class="p">.</span><span class="n">Step_1</span><span class="p">.</span><span class="n">History_1</span><span class="p">.</span><span class="n">Node</span><span class="p">.</span><span class="n">Set</span><span class="p">;</span>
+<span class="c">% Print frequency</span>
+<span class="n">Input</span><span class="p">.</span><span class="n">Step_2</span><span class="p">.</span><span class="n">History_1</span><span class="p">.</span><span class="n">Node</span><span class="p">.</span><span class="n">Print</span><span class="p">.</span><span class="n">frequency</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Compatability.html" class="btn btn-neutral float-left" title="Compatibility" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ShapeFile.html" class="btn btn-neutral float-right" title="Shape File" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, RMH Aerospace.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

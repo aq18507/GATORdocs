@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Useful Hints &mdash; GATORcell Documentation beta:6.2023.7.31 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/GATOR_logo_v2.png"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/GATOR_logo_v1.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                beta:6.2023.7.31
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Working_Principle.html">Working principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Compatability.html">Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Syntax.html">Syntax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ShapeFile.html">Shape File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Scripts.html">Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Depreciated_Scripts.html">Depreciated Scripts</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GATORcell Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Useful Hints</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Usefulhints.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="useful-hints">
+<h1>Useful Hints<a class="headerlink" href="#useful-hints" title="Permalink to this heading"></a></h1>
+<section id="running-the-model-on-a-microsoft-virtual-machine-vm">
+<h2>Running the model on a Microsoft Virtual Machine (VM)<a class="headerlink" href="#running-the-model-on-a-microsoft-virtual-machine-vm" title="Permalink to this heading"></a></h2>
+<p>Since this program is very resource-intensive it can be useful to run this on a Microsoft VM to free up resources on the local machine. Since some corporate VM’s will automatically time out when no activity is detected, which is defined as no movement by the mouse or keyboard, it will time out and close all programs that are currently running. This is, of course, problematic when the program is required to run overnight or a couple of days. This can be prevented by doing the following</p>
+<ol class="arabic simple">
+<li><p>Open <code class="docutils literal notranslate"><span class="pre">Windows</span> <span class="pre">PowerShell</span></code></p></li>
+<li><p>Copy the following line in the command propmpt:</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span><span class="nv">wsh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>New-Object<span class="w"> </span>-ComObject<span class="w"> </span>WScript.Shell<span class="p">;</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="o">(</span><span class="m">1</span><span class="o">)</span><span class="w"> </span><span class="o">{</span><span class="nv">$wsh</span>.SendKeys<span class="o">(</span><span class="s1">&#39;+{F15}&#39;</span><span class="o">)</span><span class="p">;</span><span class="w"> </span>Start-Sleep<span class="w"> </span>-seconds<span class="w"> </span><span class="m">59</span><span class="o">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Keep the <code class="docutils literal notranslate"><span class="pre">Windows</span> <span class="pre">PowerShell</span></code> window open until the program has finished and you want to log off</p></li>
+</ol>
+<p>Check the source for more information: <a class="reference external" href="https://gist.github.com/jamesfreeman959/231b068c3d1ed6557675f21c0e346a9c">jamesfreeman959/keepawake.ps1</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, RMH Aerospace.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

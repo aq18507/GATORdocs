@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scripts &mdash; GATORcell Documentation beta:6.2023.7.31 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/GATOR_logo_v2.png"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Depreciated Scripts" href="Depreciated_Scripts.html" />
+    <link rel="prev" title="Shape File" href="ShapeFile.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/GATOR_logo_v1.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                beta:6.2023.7.31
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Working_Principle.html">Working principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Compatability.html">Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Syntax.html">Syntax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ShapeFile.html">Shape File</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Scripts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#runabaqus5">runAbaqus5</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#optional-parameters">Optional Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#syntax">Syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#findrunningporcess">findRunningPorcess</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#datasort">dataSort</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dataread5">dataRead5</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#input-examples">Input Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#licensecounter">licenseCounter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#existingfiles">existingFiles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">Syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dircombine">dirCombine</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id11">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">Syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#recreateinp">recreateInp</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id13">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">Syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#printfigure">printFigure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id15">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">Syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#setlatex">setLaTeX</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id17">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">Syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#nodeextract">NodeExtract</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id19">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id20">Syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#simcounter">simCounter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id21">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id22">Syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#licensepause">licensePause</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id23">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id24">Syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#resultdir">resultDir</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id25">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id26">Syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rcloneupload">rcloneUpload</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id27">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id28">Syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dirindex">dirIndex</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id29">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id30">Syntax</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Depreciated_Scripts.html">Depreciated Scripts</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GATORcell Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Scripts</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Scripts.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="scripts">
+<h1>Scripts<a class="headerlink" href="#scripts" title="Permalink to this heading"></a></h1>
+<p>This section documents individual scripts that either is necessary or useful in running GATORcell simulations. Each script is described in its most current version which is outlined in the Compatability section in this documentation. Any depreciated scripts are documented in the <strong>Depreciated Script</strong> section of this documentation.</p>
+<section id="runabaqus5">
+<h2>runAbaqus5<a class="headerlink" href="#runabaqus5" title="Permalink to this heading"></a></h2>
+<section id="description">
+<h3>Description<a class="headerlink" href="#description" title="Permalink to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">runAbaqus5</span></code> script is designed to run Abaqus from <code class="docutils literal notranslate"><span class="pre">Matlab</span></code> over the command line using the <code class="docutils literal notranslate"><span class="pre">.dat</span></code> files and corresponding <code class="docutils literal notranslate"><span class="pre">.mat</span></code> files stored in the same directory. To run in its basic versions it does not require an input, i.e. the function only needs to be called.</p>
+<p><strong>Basic working Principle</strong></p>
+<ol class="arabic simple">
+<li><p>It scans the directory for <code class="docutils literal notranslate"><span class="pre">.dat</span></code> and <code class="docutils literal notranslate"><span class="pre">.mat</span></code> files. Once it has generated a list it will submit all files to ABAQUS.</p></li>
+<li><p>There is a gatekeeper function to prevent CPU and Memory overload. The parameter <code class="docutils literal notranslate"><span class="pre">NumberOfModels</span> <span class="pre">=</span> <span class="pre">6</span></code> which means that it can run 6 models in parallel. It will do this on one single core, which provides the computer with two cores overhead. This is backed up by the licence counter which prevents Abaqus from checking out too many licences.</p></li>
+<li><p>If there are 10 or fewer models to be solved then it will run in sequential mode, to save the time to spool up the parallel computing component of Matlab.</p></li>
+<li><p>There are a number of settings that can be changed if desired.</p></li>
+<li><p>Once all models are solved <code class="docutils literal notranslate"><span class="pre">runAbaqus5</span></code> will call the <code class="docutils literal notranslate"><span class="pre">dataSort</span></code> function to append the results from the <code class="docutils literal notranslate"><span class="pre">.dat</span></code> files into the corresponding <code class="docutils literal notranslate"><span class="pre">.mat</span></code> file.</p></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>There are known cases where this function fails to complete, this mostly happens when the <code class="docutils literal notranslate"><span class="pre">dataSort</span></code> function is called. This is caused by some files which are not properly closed by Abaqus (the causes are at the time of writing unknown). If this is the case open the Windows Task Manager (<code class="docutils literal notranslate"><span class="pre">CTRL</span> <span class="pre">+</span> <span class="pre">ALT</span> <span class="pre">+</span> <span class="pre">DEL</span></code>) and look for the process/es Name <strong>SMAStaMain</strong>. Right-click on the process and select <code class="docutils literal notranslate"><span class="pre">End</span> <span class="pre">Process</span></code>. Repeat if there is more than one of those still running. If they cannot be found then they may be hidden under the <strong>MatlabR20xxx</strong> tab. Once this is done run <code class="docutils literal notranslate"><span class="pre">dataSort</span></code> from the command line, noting that you may need to run the preamble to index the scripts directory.</p>
+</div>
+</section>
+<section id="optional-parameters">
+<h3>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Settings.numCores</span></code> defines the number of cores on which each model should be run. The default setting is <span class="math notranslate nohighlight">\(1\)</span>. There cannot be a total number of models more than the number of cores.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Settings.runMode</span></code> enables the interactive mode which can be useful for debugging. It is by default set to off i.e. <span class="math notranslate nohighlight">\(0\)</span>. To turn it on it has to be set to <span class="math notranslate nohighlight">\(1\)</span>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Settings.Memory</span></code> the total amount of memory can be set for each model in <code class="docutils literal notranslate"><span class="pre">mb</span></code>. It is by default turned off.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Settings.Gpus</span></code> the number of GPUs can be defined here. The default setting is off. There cannot be a total number of models more than the number of cores.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Settings.Timeout</span></code> a timeout can be set with this variable. The default setting is off.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Settings.Parallel</span></code> this setting allows the user to force it to parallel computing at a different number of models. The default setting is <span class="math notranslate nohighlight">\(10\)</span>. If it is set to <span class="math notranslate nohighlight">\(0\)</span> then it will force it into parallel mode straight away.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These parameters are not required. If they are not set, then the default settings are used, which are the ideal settings for most cases.</p>
+</div>
+</section>
+<section id="syntax">
+<h3>Syntax<a class="headerlink" href="#syntax" title="Permalink to this heading"></a></h3>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">Setting</span><span class="p">.</span><span class="n">numCores</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="n">runAbaqus5</span><span class="p">(</span><span class="nb">Setting</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="findrunningporcess">
+<h2>findRunningPorcess<a class="headerlink" href="#findrunningporcess" title="Permalink to this heading"></a></h2>
+<section id="id1">
+<h3>Description<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<p>This function determines whether Abaqus <code class="docutils literal notranslate"><span class="pre">standard.exe</span></code> is still running. If it is a dialogue window is called up in Matlab notifying that it is still running. Click <code class="docutils literal notranslate"><span class="pre">OK</span></code> to proceed. The next window will present the option of either waiting until all models are finished or killing all Abaqus processes.</p>
+</section>
+<section id="id2">
+<h3>Syntax<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">findRunningProcess</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Clicking <code class="docutils literal notranslate"><span class="pre">OK</span></code> will terminate all running <code class="docutils literal notranslate"><span class="pre">standard.exe</span></code> processes. This means that the model in question may not get completed.</p>
+</div>
+</section>
+</section>
+<section id="datasort">
+<h2>dataSort<a class="headerlink" href="#datasort" title="Permalink to this heading"></a></h2>
+<section id="id3">
+<h3>Description<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">dataSort</span></code> script takes all data from an analysis and sorts it into directories. This script does not require any inputs. It indexes all <code class="docutils literal notranslate"><span class="pre">.dat</span></code> files. It then appends the results into the corresponding <code class="docutils literal notranslate"><span class="pre">.mat</span></code> files with the structured array named <code class="docutils literal notranslate"><span class="pre">Output</span></code>. This script is stored in the <code class="docutils literal notranslate"><span class="pre">Script</span></code> directory, which means that if it is run for the first time it will require the working directory to be indexed. This can either be done manually or by running the <code class="docutils literal notranslate"><span class="pre">preamble;</span></code> command, providing the file exists in the working directory.</p>
+</section>
+<section id="id4">
+<h3>Syntax<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">dataSort</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If there is a results directory named <code class="docutils literal notranslate"><span class="pre">Abaqus_NaN</span></code> then this will be overwritten! Ensure that this is appropriately renamed.</p>
+</div>
+</section>
+</section>
+<section id="dataread5">
+<h2>dataRead5<a class="headerlink" href="#dataread5" title="Permalink to this heading"></a></h2>
+<section id="id5">
+<h3>Description<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
+<p>This function reads data from all <code class="docutils literal notranslate"><span class="pre">.mat</span></code> files in a directory and sorts them in a single array. Since the outputs that are required may vary quite significantly it is written in such an array that all data can be accessed with relative ease. To make a request an input structured array must be created; let’s call it <code class="docutils literal notranslate"><span class="pre">Request</span></code> that contains a request variable that follows the convention <code class="docutils literal notranslate"><span class="pre">r1</span></code>, <code class="docutils literal notranslate"><span class="pre">r2</span></code>, <code class="docutils literal notranslate"><span class="pre">r3</span></code>, etc. Each request consists of a string array which is structured as follows</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Request</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">N</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;[Function]&quot;</span><span class="w"> </span><span class="s">&quot;[FileIdentifier]&quot;</span><span class="w"> </span><span class="s">&quot;[Option]&quot;</span><span class="w"> </span><span class="s">&quot;[StructuredArrayPath]&quot;</span><span class="w"> </span><span class="s">&quot;[RequestedVariable]&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>Function:</strong> The following functions are so far available:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">i</span></code> denotes a unique <strong>Identifier</strong>, or identifiers acting as a unique fingerprint to associate outputs from different data sets to one single array entry. Important to note here is that they must be present in all data sets. For instance for a mesh density study where the variable that is changed is defined by a <code class="docutils literal notranslate"><span class="pre">MeshSizeMax</span></code> then this will be the variable to track. But likewise if there are for instance <span class="math notranslate nohighlight">\(6\)</span> unique variables that would idnetify a models are changed, then they need to be identified as such. The data must be in the follwing format <span class="math notranslate nohighlight">\(1 \times 1\)</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">s</span></code> denotes a <strong>Single</strong> output that is not an identifer. This may be some mesh data, or model data. It has to be noted that this data set will not be conditioned and must be of following format <span class="math notranslate nohighlight">\(1 \times 1\)</span>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a</span></code> offers the ability to extract data from an array that in not in the format of <span class="math notranslate nohighlight">\(1 \times 1\)</span>. That said the output has to be in the format <span class="math notranslate nohighlight">\(1 \times 1\)</span> format. The location needs to be specified in the options file where to get the data from. If there is a <span class="math notranslate nohighlight">\(4 \times 4\)</span> matrix and the data from row <span class="math notranslate nohighlight">\(2\)</span> culumn <span class="math notranslate nohighlight">\(3\)</span> then the following needs to be entered as an option <code class="docutils literal notranslate"><span class="pre">&quot;2&quot;</span> <span class="pre">&quot;3&quot;</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dP_max_U3</span></code> this gets the maximum out-of-plain displacement in the <span class="math notranslate nohighlight">\(z\)</span>-direction. The original data must be in the format <span class="math notranslate nohighlight">\(1 \times n\)</span>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EA_max</span></code> computes the <em>EA</em> at the maximum extension, or at the last interwall using the reaction forces using the following equation, where the original data must be in the format <span class="math notranslate nohighlight">\(1 \times n\)</span>.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\frac{FL}{d}\]</div>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">EI_max</span></code> computes the <em>EA</em> at the maximum extension, or at the last interwall using the reaction forces using the following equation, where the original data must be in the format <span class="math notranslate nohighlight">\(1 \times n\)</span>.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\frac{FL^3}{48d}\]</div>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">RF_max</span></code> Computes the sum of all reaction forces at maximum extension. The original data must be in the format <span class="math notranslate nohighlight">\(1 \times n\)</span>.</p></li>
+</ol>
+<p><strong>FileIdentifier:</strong> The file identifer categorises the model according to a common pattern in the file name. For instance in a file name <code class="docutils literal notranslate"><span class="pre">EA_test_1.inp</span></code> where <code class="docutils literal notranslate"><span class="pre">EA_</span></code> is the common pattern.</p>
+<p><strong>RequestedVariable:</strong> Defines the path to the data. For instance if it is stored in <code class="docutils literal notranslate"><span class="pre">Input.CoreParameters.Mesh</span></code> then each level needs to be specified as a string like the following <code class="docutils literal notranslate"><span class="pre">&quot;Input&quot;</span> <span class="pre">&quot;CoreParameters&quot;</span> <span class="pre">&quot;Mesh&quot;</span></code>.</p>
+<p><strong>RequestedVariable:</strong> This is the variable that is requested. It must be in a string format. Note that in the output prompt it will save the variable name if the <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">s</span></code>, <code class="docutils literal notranslate"><span class="pre">a</span></code> or <code class="docutils literal notranslate"><span class="pre">RF_max</span></code> functions are used. For the <code class="docutils literal notranslate"><span class="pre">EA_max</span></code> and <code class="docutils literal notranslate"><span class="pre">EI_max</span></code> functions the actual functions are printed for clarity.</p>
+</section>
+<section id="input-examples">
+<h3>Input Examples<a class="headerlink" href="#input-examples" title="Permalink to this heading"></a></h3>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Request</span><span class="p">.</span><span class="n">r1</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;i&quot;</span><span class="w"> </span><span class="s">&quot;DP_&quot;</span><span class="w"> </span><span class="s">&quot;Input&quot;</span><span class="w"> </span><span class="s">&quot;CoreParameters&quot;</span><span class="w"> </span><span class="s">&quot;t&quot;</span><span class="p">];</span>
+<span class="n">Request</span><span class="p">.</span><span class="n">r2</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;i&quot;</span><span class="w"> </span><span class="s">&quot;DP_&quot;</span><span class="w"> </span><span class="s">&quot;Input&quot;</span><span class="w"> </span><span class="s">&quot;CoreParameters&quot;</span><span class="w"> </span><span class="s">&quot;theta&quot;</span><span class="p">];</span>
+<span class="n">Request</span><span class="p">.</span><span class="n">r3</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;i&quot;</span><span class="w"> </span><span class="s">&quot;DP_&quot;</span><span class="w"> </span><span class="s">&quot;Input&quot;</span><span class="w"> </span><span class="s">&quot;CoreParameters&quot;</span><span class="w"> </span><span class="s">&quot;z&quot;</span><span class="p">];</span>
+<span class="n">Request</span><span class="p">.</span><span class="n">r4</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;i&quot;</span><span class="w"> </span><span class="s">&quot;DP_&quot;</span><span class="w"> </span><span class="s">&quot;Input&quot;</span><span class="w"> </span><span class="s">&quot;CoreParameters&quot;</span><span class="w"> </span><span class="s">&quot;h&quot;</span><span class="p">];</span>
+<span class="n">Request</span><span class="p">.</span><span class="n">r5</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;i&quot;</span><span class="w"> </span><span class="s">&quot;DP_&quot;</span><span class="w"> </span><span class="s">&quot;Input&quot;</span><span class="w"> </span><span class="s">&quot;CoreParameters&quot;</span><span class="w"> </span><span class="s">&quot;dE&quot;</span><span class="p">];</span>
+<span class="n">Request</span><span class="p">.</span><span class="n">r6</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;i&quot;</span><span class="w"> </span><span class="s">&quot;DP_&quot;</span><span class="w"> </span><span class="s">&quot;Input&quot;</span><span class="w"> </span><span class="s">&quot;CoreParameters&quot;</span><span class="w"> </span><span class="s">&quot;ts&quot;</span><span class="p">];</span>
+<span class="n">Request</span><span class="p">.</span><span class="n">r7</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;a&quot;</span><span class="w"> </span><span class="s">&quot;DP_&quot;</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="s">&quot;Output&quot;</span><span class="w"> </span><span class="s">&quot;TotalCpuTime&quot;</span><span class="p">];</span>
+<span class="n">Request</span><span class="p">.</span><span class="n">r8</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;a&quot;</span><span class="w"> </span><span class="s">&quot;DP_&quot;</span><span class="w"> </span><span class="s">&quot;2&quot;</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="s">&quot;Output&quot;</span><span class="w"> </span><span class="s">&quot;TotalCpuTime&quot;</span><span class="p">];</span>
+<span class="n">Request</span><span class="p">.</span><span class="n">r9</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;s&quot;</span><span class="w"> </span><span class="s">&quot;EA_&quot;</span><span class="w"> </span><span class="s">&quot;Input&quot;</span><span class="w"> </span><span class="s">&quot;CoreParameters&quot;</span><span class="w"> </span><span class="s">&quot;xmax&quot;</span><span class="p">];</span>
+<span class="n">Request</span><span class="p">.</span><span class="n">r10</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;s&quot;</span><span class="w"> </span><span class="s">&quot;EA_&quot;</span><span class="w"> </span><span class="s">&quot;Input&quot;</span><span class="w"> </span><span class="s">&quot;CoreParameters&quot;</span><span class="w"> </span><span class="s">&quot;ymax&quot;</span><span class="p">];</span>
+<span class="n">Request</span><span class="p">.</span><span class="n">r11</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;EA_max&quot;</span><span class="w"> </span><span class="s">&quot;EA_&quot;</span><span class="w"> </span><span class="s">&quot;Output&quot;</span><span class="w"> </span><span class="s">&quot;Step_1&quot;</span><span class="w"> </span><span class="s">&quot;History_1&quot;</span><span class="w"> </span><span class="s">&quot;RF2&quot;</span><span class="p">];</span>
+<span class="n">Request</span><span class="p">.</span><span class="n">r12</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;EI_max&quot;</span><span class="w"> </span><span class="s">&quot;EI_&quot;</span><span class="w"> </span><span class="s">&quot;Output&quot;</span><span class="w"> </span><span class="s">&quot;Step_1&quot;</span><span class="w"> </span><span class="s">&quot;History_1&quot;</span><span class="w"> </span><span class="s">&quot;RF3&quot;</span><span class="p">];</span>
+<span class="n">Request</span><span class="p">.</span><span class="n">r13</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;dP_max_U3&quot;</span><span class="w"> </span><span class="s">&quot;DP_&quot;</span><span class="w"> </span><span class="s">&quot;Output&quot;</span><span class="w"> </span><span class="s">&quot;Step_2&quot;</span><span class="w"> </span><span class="s">&quot;History_1&quot;</span><span class="w"> </span><span class="s">&quot;U3&quot;</span><span class="p">];</span>
+</pre></div>
+</div>
+</section>
+<section id="id6">
+<h3>Syntax<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h3>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">ModelData</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dataRead5</span><span class="p">(</span><span class="n">Path</span><span class="p">,</span><span class="n">Dir</span><span class="p">,</span><span class="n">Request</span><span class="p">,</span><span class="n">moveFiles</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="licensecounter">
+<h2>licenseCounter<a class="headerlink" href="#licensecounter" title="Permalink to this heading"></a></h2>
+<section id="id7">
+<h3>Description<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h3>
+<p>This function counts the number of ABAQUS licences used by the computer from which the command is executed. There are no inputs to this function, it will find the computer name and then run the ABAQUS command <code class="docutils literal notranslate"><span class="pre">abaqus</span> <span class="pre">licensing</span> <span class="pre">dslsstat</span> <span class="pre">-usage</span></code> to return the number of licences in <code class="docutils literal notranslate"><span class="pre">License_num_user</span></code>. ABAQUS takes out 50 tokens per licence and the fair usage policy is at the time of writing 400 tokens, which would equate to 8 individual licences. The <code class="docutils literal notranslate"><span class="pre">License_availability</span></code> returns the number of available in the first column and the licences used in the second column. The licence tags hard coded in this function are <code class="docutils literal notranslate"><span class="pre">QXT</span></code> and <code class="docutils literal notranslate"><span class="pre">QSD</span></code>. The format is <span class="math notranslate nohighlight">\(2\times n\)</span>.</p>
+</section>
+<section id="id8">
+<h3>Syntax<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h3>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">License_num_user</span><span class="p">,</span><span class="w"> </span><span class="n">License_availability</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">licenseCounter</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="existingfiles">
+<h2>existingFiles<a class="headerlink" href="#existingfiles" title="Permalink to this heading"></a></h2>
+<section id="id9">
+<h3>Description<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h3>
+<p>This function counts the number of files of a certain type present in the directory in which it is executed. It requires a string input with the desired file suffix, for example for a <code class="docutils literal notranslate"><span class="pre">.mlx</span></code> file the string <code class="docutils literal notranslate"><span class="pre">mlx</span></code> is required. Note that it will internally convert it to the following expression <code class="docutils literal notranslate"><span class="pre">*.mlx</span></code>. The output is a cell-array containing a file name <code class="docutils literal notranslate"><span class="pre">Files</span></code> per cell and the number of files <code class="docutils literal notranslate"><span class="pre">Size</span></code> as a secondary output.</p>
+</section>
+<section id="id10">
+<h3>Syntax<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h3>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Files</span><span class="p">,</span><span class="n">Size</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">existingFiles</span><span class="p">(</span><span class="s">&#39;FileType&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="dircombine">
+<h2>dirCombine<a class="headerlink" href="#dircombine" title="Permalink to this heading"></a></h2>
+<section id="id11">
+<h3>Description<a class="headerlink" href="#id11" title="Permalink to this heading"></a></h3>
+<p>This function combines the data of two directories and deletes the predefined directory. This function has two inputs and no output. The inputs have to be in string format.</p>
+<p><strong>dir_1</strong> The first directory is the one that is the one the second directory is copying all its data to.
+<strong>dir_2</strong> The second directory is the one that is going to be deleted.</p>
+</section>
+<section id="id12">
+<h3>Syntax<a class="headerlink" href="#id12" title="Permalink to this heading"></a></h3>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">dirCombine</span><span class="p">(</span><span class="s">&#39;dir_1&#39;</span><span class="p">,</span><span class="s">&#39;dir_2&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="recreateinp">
+<h2>recreateInp<a class="headerlink" href="#recreateinp" title="Permalink to this heading"></a></h2>
+<section id="id13">
+<h3>Description<a class="headerlink" href="#id13" title="Permalink to this heading"></a></h3>
+<p>This function recreates an input file (<code class="docutils literal notranslate"><span class="pre">.inp</span></code>), providing there is a healthy corresponding <code class="docutils literal notranslate"><span class="pre">.mat</span></code> file present. Note that this script does not need any input. It needs to be run from the directory in which the corrupted <code class="docutils literal notranslate"><span class="pre">.inp</span></code> files and the corresponding <code class="docutils literal notranslate"><span class="pre">.mat</span></code> are located.</p>
+</section>
+<section id="id14">
+<h3>Syntax<a class="headerlink" href="#id14" title="Permalink to this heading"></a></h3>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">recreateInp</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="printfigure">
+<h2>printFigure<a class="headerlink" href="#printfigure" title="Permalink to this heading"></a></h2>
+<section id="id15">
+<h3>Description<a class="headerlink" href="#id15" title="Permalink to this heading"></a></h3>
+<p>This function creates figures in <code class="docutils literal notranslate"><span class="pre">EPS</span></code>, <code class="docutils literal notranslate"><span class="pre">PDF</span></code> and <code class="docutils literal notranslate"><span class="pre">SVG</span></code> formats. It has two inputs, the figure <code class="docutils literal notranslate"><span class="pre">Figure</span></code> and the file name <code class="docutils literal notranslate"><span class="pre">Name</span></code> (note that this is without the file suffix). The figure needs to be defined using the <a class="reference external" href="https://uk.mathworks.com/help/matlab/ref/figure.html">Matlab figure</a> command. For instance in its simplest form:</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">figure</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">name</span></code> must be in a string format. The relevant suffix will be added by the <code class="docutils literal notranslate"><span class="pre">printFigure</span></code> function. To keep all figures in one place this function will check whether there is a directory with the name <code class="docutils literal notranslate"><span class="pre">FIGURE</span></code> present within the directory in which it is executed. If there is no such directory present the function will create one and save all figures in there. Note that this function has no output.</p>
+</section>
+<section id="id16">
+<h3>Syntax<a class="headerlink" href="#id16" title="Permalink to this heading"></a></h3>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">printFigure</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span><span class="s">&#39;Name&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="setlatex">
+<h2>setLaTeX<a class="headerlink" href="#setlatex" title="Permalink to this heading"></a></h2>
+<section id="id17">
+<h3>Description<a class="headerlink" href="#id17" title="Permalink to this heading"></a></h3>
+<p>Running this function will set all formatting to <span class="math notranslate nohighlight">\(\mathrm{ \LaTeX }\)</span>. This function requires to define the desired font size which is a numerical input in the format of <span class="math notranslate nohighlight">\(1 \times 1\)</span>.</p>
+</section>
+<section id="id18">
+<h3>Syntax<a class="headerlink" href="#id18" title="Permalink to this heading"></a></h3>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">setLaTeX</span><span class="p">(</span><span class="n">FontSize</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="nodeextract">
+<h2>NodeExtract<a class="headerlink" href="#nodeextract" title="Permalink to this heading"></a></h2>
+<section id="id19">
+<h3>Description<a class="headerlink" href="#id19" title="Permalink to this heading"></a></h3>
+<p>This function extracts nodes which are enclosed in a volume.</p>
+<p><strong>NodeArray:</strong> Is an array containing all the nodes which must be in the format of <span class="math notranslate nohighlight">\(N \times 3\)</span>, with the following arrangement <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(z\)</span>.</p>
+<p><strong>Range:</strong> Defines the box, or area from which the nodes need to be extracted. This must be in the following format: <code class="docutils literal notranslate"><span class="pre">[xmin</span> <span class="pre">ymin</span> <span class="pre">zmin</span> <span class="pre">xmax</span> <span class="pre">ymax</span> <span class="pre">zmax]</span></code>.</p>
+<p><strong>Precision:</strong> This is an offset value, which can be used to increase the size of the box. It has to be noted that it will add this in all directions. If the box is defined properly, then it may not be needed and can be set to <span class="math notranslate nohighlight">\(0\)</span>.</p>
+<p><strong>Nodes:</strong> This will return the Node number, which is within the bounded box.</p>
+</section>
+<section id="id20">
+<h3>Syntax<a class="headerlink" href="#id20" title="Permalink to this heading"></a></h3>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Nodes</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">NodeExtract</span><span class="p">(</span><span class="n">NodeArray</span><span class="p">,</span><span class="n">Range</span><span class="p">,</span><span class="n">Precision</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="simcounter">
+<h2>simCounter<a class="headerlink" href="#simcounter" title="Permalink to this heading"></a></h2>
+<section id="id21">
+<h3>Description<a class="headerlink" href="#id21" title="Permalink to this heading"></a></h3>
+<p>This function counts the number of simulations by monitoring and counting the number of a specified file or directory. This should either be a <code class="docutils literal notranslate"><span class="pre">*.lck</span></code> file or a <code class="docutils literal notranslate"><span class="pre">*.simdir</span></code> directory. If the number is greater than the specified maximum number in the <code class="docutils literal notranslate"><span class="pre">NumberOfModels</span></code> inputs then the script will pause, in other way enter a while loop until the number of monitored files falls below <code class="docutils literal notranslate"><span class="pre">NumberOfModels</span></code>.</p>
+<p><strong>NumberOfModels:</strong> This is a numeric input and must be an integer.</p>
+<p><strong>FileToMonitor:</strong> This must be a string, for instance <code class="docutils literal notranslate"><span class="pre">&quot;.lck&quot;</span></code>. The function looks for a file that ends with the provided string.</p>
+</section>
+<section id="id22">
+<h3>Syntax<a class="headerlink" href="#id22" title="Permalink to this heading"></a></h3>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">simCounter</span><span class="p">(</span><span class="n">NumberOfModels</span><span class="p">,</span><span class="s">&quot;FileToMonitor&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="licensepause">
+<h2>licensePause<a class="headerlink" href="#licensepause" title="Permalink to this heading"></a></h2>
+<section id="id23">
+<h3>Description<a class="headerlink" href="#id23" title="Permalink to this heading"></a></h3>
+<p>This script pauses the simulation if a maximum of <strong>8</strong> licenses is used on the license server. This script has no input and no output. It relies on the <code class="docutils literal notranslate"><span class="pre">licenseCounter.mlx</span></code> script to count the actual license</p>
+</section>
+<section id="id24">
+<h3>Syntax<a class="headerlink" href="#id24" title="Permalink to this heading"></a></h3>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">licensePause</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="resultdir">
+<h2>resultDir<a class="headerlink" href="#resultdir" title="Permalink to this heading"></a></h2>
+<section id="id25">
+<h3>Description<a class="headerlink" href="#id25" title="Permalink to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">resultDir</span></code> script creates the directories in which the result data is going to be saved into. It does not need an input variable as it scans the directory in which it is executed for directories starting with the name <em>Results</em>. It will assign a new and unique Result directory name. It has an additional input which is in a string format which can be used if a directory is already defined to extract the paths for the <code class="docutils literal notranslate"><span class="pre">OBD</span></code>, <code class="docutils literal notranslate"><span class="pre">INP</span></code>, <code class="docutils literal notranslate"><span class="pre">CAD</span></code>, <code class="docutils literal notranslate"><span class="pre">MSG</span></code> and <code class="docutils literal notranslate"><span class="pre">DAT</span></code> subdirectories. Note that this will <strong>not</strong> create new directories</p>
+<p><strong>DirName:</strong> Is a string containing the new directories or already defined directory name.</p>
+<p><strong>odbName:</strong> Path to the <code class="docutils literal notranslate"><span class="pre">OBD</span></code> subdirectory.</p>
+<p><strong>inpName:</strong> Path to the <code class="docutils literal notranslate"><span class="pre">INP</span></code> subdirectory.</p>
+<p><strong>cadName:</strong> Path to the <code class="docutils literal notranslate"><span class="pre">CAD</span></code> subdirectory.</p>
+<p><strong>msgName:</strong> Path to the <code class="docutils literal notranslate"><span class="pre">MSG</span></code> subdirectory.</p>
+<p><strong>datName:</strong> Path to the <code class="docutils literal notranslate"><span class="pre">DAT</span></code> subdirectory.</p>
+</section>
+<section id="id26">
+<h3>Syntax<a class="headerlink" href="#id26" title="Permalink to this heading"></a></h3>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s">&quot;DirName&quot;</span><span class="p">,</span><span class="s">&quot;odbName&quot;</span><span class="p">,</span><span class="s">&quot;inpName&quot;</span><span class="p">,</span><span class="s">&quot;cadName&quot;</span><span class="p">,</span><span class="s">&quot;msgName&quot;</span><span class="p">,</span><span class="s">&quot;datName&quot;</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">resultDir</span><span class="p">(</span><span class="s">&quot;DirName&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="rcloneupload">
+<h2>rcloneUpload<a class="headerlink" href="#rcloneupload" title="Permalink to this heading"></a></h2>
+<section id="id27">
+<h3>Description<a class="headerlink" href="#id27" title="Permalink to this heading"></a></h3>
+<p>This script creates a <code class="docutils literal notranslate"><span class="pre">.bat</span></code> file with the name <code class="docutils literal notranslate"><span class="pre">rcloneUpload.bat</span></code>. This file will be created into the directory in which the <code class="docutils literal notranslate"><span class="pre">rcloneUpload.mlx</span></code> file is executed from. This file requires <code class="docutils literal notranslate"><span class="pre">RCLONE</span></code> to be installed and properly indexed. Furthermore, changes to the file may need to be made to account for different absolute locations in both the local and remote destinations. This script has no input or output.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">rcloneUpload.bat</span></code> should <strong>never</strong> copied into a different directory as it contains the path to the directory in which it was generated in.</p>
+</div>
+</section>
+<section id="id28">
+<h3>Syntax<a class="headerlink" href="#id28" title="Permalink to this heading"></a></h3>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">rcloneUpload</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="dirindex">
+<h2>dirIndex<a class="headerlink" href="#dirindex" title="Permalink to this heading"></a></h2>
+<section id="id29">
+<h3>Description<a class="headerlink" href="#id29" title="Permalink to this heading"></a></h3>
+<p>This script contains all directories which need to be indexed in the <code class="docutils literal notranslate"><span class="pre">preamble</span></code>. It requires the preamble to index the <code class="docutils literal notranslate"><span class="pre">scripts</span></code> directory as this is located in this directory. The Input for this script is the GATORcell root directory level which is determined by the preamble.</p>
+</section>
+<section id="id30">
+<h3>Syntax<a class="headerlink" href="#id30" title="Permalink to this heading"></a></h3>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">dirIndex</span><span class="p">(</span><span class="n">finalLevel</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ShapeFile.html" class="btn btn-neutral float-left" title="Shape File" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Depreciated_Scripts.html" class="btn btn-neutral float-right" title="Depreciated Scripts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, RMH Aerospace.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
