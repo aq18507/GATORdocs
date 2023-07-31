@@ -3,19 +3,21 @@ Scripts
 
 This section documents individual scripts that either is necessary or useful in running GATORcell simulations. Each script is described in its most current version which is outlined in the Compatability section in this documentation. Any depreciated scripts are documented in the **Depreciated Script** section of this documentation.
 
-runAbaqus4
+runAbaqus5
 ----------
 
 Description
 +++++++++++
 
-The ``runAbaqus4`` script is designed to run abaqus from ``Matlab`` over the command line using the ``.inp`` files and corresponding ``.mat`` files stored in the same directory. To run in its basic versions it does not require an input, i.e. the function only needs to be called.
+The ``runAbaqus5`` script is designed to run Abaqus from ``Matlab`` over the command line using the ``.dat`` files and corresponding ``.mat`` files stored in the same directory. To run in its basic versions it does not require an input, i.e. the function only needs to be called.
 
-**Working Principle**
+**Basic working Principle**
 
-#. It scans the directory for ``.inp`` and ``.mat`` files. Once it has generated a list it will submit all files to ABAQUS.
-#. There is a gatekeeper function to prevent CPU and Memory overload. The parameter ``NumberOfModels = 6`` which means that it can run 6 models in parallel. It will do this on one single core, which provides the computer with two cores overhead.
-#. Once all models are solved ``runAbaqus4`` will call the ``dataSort`` function to append the reults from the ``.dat`` files into the corresponding ``.mat`` file.
+#. It scans the directory for ``.dat`` and ``.mat`` files. Once it has generated a list it will submit all files to ABAQUS.
+#. There is a gatekeeper function to prevent CPU and Memory overload. The parameter ``NumberOfModels = 6`` which means that it can run 6 models in parallel. It will do this on one single core, which provides the computer with two cores overhead. This is backed up by the licence counter which prevents Abaqus from checking out too many licences.
+#. If there are 10 or fewer models to be solved then it will run in sequential mode, to save the time to spool up the parallel computing component of Matlab.
+#. There are a number of settings that can be changed if desired.
+#. Once all models are solved ``runAbaqus5`` will call the ``dataSort`` function to append the reults from the ``.dat`` files into the corresponding ``.mat`` file.
 
 .. warning::
     There are known cases where this function fails to complete, this mostly happens when the ``dataSort`` function is called. This is caused by some files the are not properly closed by Abaqus (the causes are at the time of writing unknown). If this is the case open the Windows Task Manager (``CTRL + ALT + DEL``) and look for the process/es Name **SMAStaMain**. Right-click on the process and select ``End Process``. Repeat if there is more than one of those still running. If they cannot be found then they may be hidden under the **MatlabR20xxx** tab. Once this is done run ``dataSort`` from the command line, noting that you may need to run the preamble to index the scripts directory.
@@ -23,14 +25,21 @@ The ``runAbaqus4`` script is designed to run abaqus from ``Matlab`` over the com
 
 Optional Parameters
 +++++++++++++++++++
-#. ``NumberOfModels`` which limits the number of simulations to be run in parallel. Default == :math:`6`
+#. ``Settings.numCores`` defines the number of cores on which each model should be run. The default setting is ``1``. There cannot be a total number of models more than the number of cores.
+#. ``Settings.runMode`` enables the interactive mode which can be useful for debugging. It is by default set to off i.e. ``0``. To turn it on it has to be set to ``1``.
+#. ``Settings.Memory`` the total amount of memory can be set for each model in ``mb``. It is by default turned off.
+#. ``Settings.Gpus`` the number of GPUs can be defined here. The default setting is off. There cannot be a total number of models more than the number of cores.
+#. ``Settings.Timeout`` a timeout can be set with this variable. The default setting is off.
+#. ``Settings.Parallel`` this setting allows the user to force it to parallel computing at a different number of models. The default setting is ``10``. If it is set to ``0`` then it will force it into parallel mode straight away. 
+
 
 Syntax
 ++++++
 
 .. code-block:: matlab
     
-    runAbaqus4;
+    Setting.numCores = 10;
+    runAbaqus5(Setting);
 
 findRunningPorcess
 ------------------
