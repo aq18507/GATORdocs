@@ -17,21 +17,23 @@ The ``runAbaqus5`` script is designed to run Abaqus from ``Matlab`` over the com
 #. There is a gatekeeper function to prevent CPU and Memory overload. The parameter ``NumberOfModels = 6`` which means that it can run 6 models in parallel. It will do this on one single core, which provides the computer with two cores overhead. This is backed up by the licence counter which prevents Abaqus from checking out too many licences.
 #. If there are 10 or fewer models to be solved then it will run in sequential mode, to save the time to spool up the parallel computing component of Matlab.
 #. There are a number of settings that can be changed if desired.
-#. Once all models are solved ``runAbaqus5`` will call the ``dataSort`` function to append the reults from the ``.dat`` files into the corresponding ``.mat`` file.
+#. Once all models are solved ``runAbaqus5`` will call the ``dataSort`` function to append the results from the ``.dat`` files into the corresponding ``.mat`` file.
 
 .. warning::
-    There are known cases where this function fails to complete, this mostly happens when the ``dataSort`` function is called. This is caused by some files the are not properly closed by Abaqus (the causes are at the time of writing unknown). If this is the case open the Windows Task Manager (``CTRL + ALT + DEL``) and look for the process/es Name **SMAStaMain**. Right-click on the process and select ``End Process``. Repeat if there is more than one of those still running. If they cannot be found then they may be hidden under the **MatlabR20xxx** tab. Once this is done run ``dataSort`` from the command line, noting that you may need to run the preamble to index the scripts directory.
+    There are known cases where this function fails to complete, this mostly happens when the ``dataSort`` function is called. This is caused by some files which are not properly closed by Abaqus (the causes are at the time of writing unknown). If this is the case open the Windows Task Manager (``CTRL + ALT + DEL``) and look for the process/es Name **SMAStaMain**. Right-click on the process and select ``End Process``. Repeat if there is more than one of those still running. If they cannot be found then they may be hidden under the **MatlabR20xxx** tab. Once this is done run ``dataSort`` from the command line, noting that you may need to run the preamble to index the scripts directory.
 
 
 Optional Parameters
 +++++++++++++++++++
-#. ``Settings.numCores`` defines the number of cores on which each model should be run. The default setting is ``1``. There cannot be a total number of models more than the number of cores.
-#. ``Settings.runMode`` enables the interactive mode which can be useful for debugging. It is by default set to off i.e. ``0``. To turn it on it has to be set to ``1``.
+#. ``Settings.numCores`` defines the number of cores on which each model should be run. The default setting is :math:`1`. There cannot be a total number of models more than the number of cores.
+#. ``Settings.runMode`` enables the interactive mode which can be useful for debugging. It is by default set to off i.e. :math:`0`. To turn it on it has to be set to :math:`1`.
 #. ``Settings.Memory`` the total amount of memory can be set for each model in ``mb``. It is by default turned off.
 #. ``Settings.Gpus`` the number of GPUs can be defined here. The default setting is off. There cannot be a total number of models more than the number of cores.
 #. ``Settings.Timeout`` a timeout can be set with this variable. The default setting is off.
-#. ``Settings.Parallel`` this setting allows the user to force it to parallel computing at a different number of models. The default setting is ``10``. If it is set to ``0`` then it will force it into parallel mode straight away. 
+#. ``Settings.Parallel`` this setting allows the user to force it to parallel computing at a different number of models. The default setting is :math:`10`. If it is set to :math:`0` then it will force it into parallel mode straight away. 
 
+.. note::
+    These parameters are not required. If they are not set, then the default settings are used, which are the ideal settings for most cases.
 
 Syntax
 ++++++
